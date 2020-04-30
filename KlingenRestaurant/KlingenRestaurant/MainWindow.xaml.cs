@@ -27,17 +27,6 @@ namespace KlingenRestaurant
         public MainWindow()
         {
             InitializeComponent();
-
-            //List<MenuItem> menu = new List<MenuItem>();
-
-            //menu.Add(new MenuItem("Home", PackIconKind.Home, Brushes.White));
-            //menu.Add(new MenuItem("Menu", PackIconKind.FoodRamen, Brushes.White));
-            //menu.Add(new MenuItem("Reservation", PackIconKind.TableChair, Brushes.White));
-            //menu.Add(new MenuItem("Feedback", PackIconKind.Feedback, Brushes.White));
-            //menu.Add(new MenuItem("Account", PackIconKind.Account, Brushes.White));
-            //menu.Add(new MenuItem("Settings", PackIconKind.Settings, Brushes.White));
-
-            //ListViewMenu.ItemsSource = menu;
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -57,3 +46,4 @@ namespace KlingenRestaurant
         }
     }
 }
+
