@@ -81,9 +81,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MenuDish.cs" />
+    <Compile Include="Helpers\RelayCommandParametr.cs" />
+    <Compile Include="Model\MenuDish.cs" />
     <Compile Include="Helpers\FrameNavigationSevice.cs" />
     <Compile Include="Helpers\IFrameNavigationService.cs" />
+    <Compile Include="ViewModel\AboutDishViewModel.cs" />
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\FeedbackViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
@@ -92,6 +94,9 @@
     <Compile Include="ViewModel\ReservationViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AboutDishPage.xaml.cs">
+      <DependentUpon>AboutDishPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
@@ -122,6 +127,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Style\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutDishPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,7 +161,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuItem.cs" />
+    <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -186,6 +199,7 @@
     <Resource Include="Images\MenuDishes\minion.jpg" />
     <Resource Include="Images\MenuDishes\solyanka.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

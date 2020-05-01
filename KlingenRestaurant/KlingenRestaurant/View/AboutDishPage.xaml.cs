@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace KlingenRestaurant.View
 {
     /// <summary>
-    /// Логика взаимодействия для MenuPage.xaml
+    /// Логика взаимодействия для AboutDishPage.xaml
     /// </summary>
-    public partial class MenuPage : Page
+    public partial class AboutDishPage : Page
     {
-        public MenuPage()
+        public AboutDishPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("sdlksdgs");
         }
     }
 }

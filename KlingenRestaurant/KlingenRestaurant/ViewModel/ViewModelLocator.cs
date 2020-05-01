@@ -29,6 +29,7 @@ namespace KlingenRestaurant.ViewModel
             SimpleIoc.Default.Register<FeedbackViewModel>();
             SimpleIoc.Default.Register<AccountViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
+            SimpleIoc.Default.Register<AboutDishViewModel>();
             SetupNavigation();
         }
 
@@ -37,6 +38,7 @@ namespace KlingenRestaurant.ViewModel
             var navigationService = new FrameNavigationService();
             navigationService.Configure("Home", new Uri("../View/HomePage.xaml", UriKind.Relative));
             navigationService.Configure("Menu", new Uri("../View/MenuPage.xaml", UriKind.Relative));
+            navigationService.Configure("AboutDish", new Uri("../View/AboutDishPage.xaml", UriKind.Relative));
             navigationService.Configure("Reservation", new Uri("../View/ReservationPage.xaml", UriKind.Relative));
             navigationService.Configure("Feedback", new Uri("../View/FeedbackPage.xaml", UriKind.Relative));
             navigationService.Configure("Account", new Uri("../View/AccountPage.xaml", UriKind.Relative));
@@ -62,6 +64,14 @@ namespace KlingenRestaurant.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MenuViewModel>();
+            }
+        }
+
+        public AboutDishViewModel AboutDishViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AboutDishViewModel>();
             }
         }
 
@@ -96,6 +106,7 @@ namespace KlingenRestaurant.ViewModel
                 return ServiceLocator.Current.GetInstance<SettingsViewModel>();
             }
         }
+
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>

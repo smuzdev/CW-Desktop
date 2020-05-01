@@ -46,3 +46,6 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\bin\Debug\Microsoft.Xaml.Behaviors.dll
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\View\AboutDishPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\View\AboutDishPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Style\ListBox.baml
