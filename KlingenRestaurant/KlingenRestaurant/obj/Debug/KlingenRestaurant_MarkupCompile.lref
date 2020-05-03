@@ -1,12 +1,16 @@
 ﻿
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\App.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\LoginWindow.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\MainWindow.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Login\LoginPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Login\RegistrationPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Style\Colors.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Style\ListBox.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\AboutDishPage.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\AccountPage.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\FeedbackPage.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\HomePage.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\MenuPage.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\ReservationPage.xaml;;
-FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\View\SettingsPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\AboutDishPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\AccountPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\FeedbackPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\HomePage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\MenuPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\ReservationPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\SettingsPage.xaml;;
 

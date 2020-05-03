@@ -1,0 +1,75 @@
+﻿<Page x:Class="KlingenRestaurant.Pages.Menu.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KlingenRestaurant.Pages.Menu"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HomePage"
+      DataContext="{Binding Path=HomeViewModel, Source={StaticResource Locator}}">
+
+    <Grid>
+        <ScrollViewer>
+            <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
+                                                 OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+                <StackPanel>
+                    <TextBlock Text="Акции"
+                               FontFamily="AnastasiaScriptC"
+                               FontSize="50"
+                               FontWeight="Bold"
+                               Foreground="#fc3912"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel>
+
+                            <TextBlock Text="Только сегодня"
+                               FontFamily="Roboto"
+                               FontSize="20"
+                               Foreground="#000000"/>
+                            <StackPanel>
+                                <TextBlock Text="Свиная буженина гриль" 
+                                   FontSize="25" 
+                                   FontFamily="Roboto"
+                                   Foreground="#fc3912"
+                                   FontWeight="Bold"
+                                   />
+
+                                <TextBlock Text="Буженина — это невероятно сочное и ароматное блюдо из мяса.
+                                   Приготовленная на гриле по старинному рецепту, которому больше 120 лет.
+                                   Насладитесь ей, пока буженина еще горячая, или ешьте ее охлажденной,
+                                   нарезав тонкими ломтиками, как колбасу."
+                                   Width="250"
+                                   FontSize="18"
+                                   FontFamily="Roboto"
+                                   Foreground="#000000"
+                                   Margin="25 25 25 15"
+                                   TextWrapping="Wrap"/>
+                                <TextBlock Text="$9.50"
+                                   HorizontalAlignment="Center"
+                                   FontSize="30"
+                                   FontFamily="Roboto"
+                                   FontWeight="Bold"
+                                   Foreground="#ff0033"
+                                   />
+                            </StackPanel>
+                            <Button FontFamily="Roboto"
+                            Content="Подробнее"
+                            FontSize="18"
+                            Margin="0 15 0 25"
+                            BorderBrush="#ff0033"
+                            Background="#fc3912"/>
+                        </StackPanel>
+                        <Image Margin="10"
+                       Width="200"
+                       Height="200"
+                       Source="/Assets/MenuDishes/buzhenina.jpg"
+                       Stretch="UniformToFill"/>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:TransitioningContent>
+        </ScrollViewer>
+    </Grid>
+</Page>

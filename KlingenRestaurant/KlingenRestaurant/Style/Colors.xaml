@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:KlingenRestaurant">
+
+    <SolidColorBrush x:Key="ForegroundColorLight" Color="#FFFFFF" />
+    <!--Background Color -->
+    <SolidColorBrush x:Key="BackgroundDarkBlueBrush" Color="#FC3912" />
+    <!--Second Backgound Color -->
+     <SolidColorBrush x:Key="BackgroundLightBlueBrush" Color="#0FAEF0" />
+    <!--Button MaterialDesign Color-->
+    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FC3912" />
+
+    <!--Primary-->
+    <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#FC3912" />
+    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FF333333" />
+
+    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFDDDDDD" />
+
+    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#056E9C" />
+    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFFFF" />
+    <!--Accent-->
+    <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#056E9C" />
+    <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF" />
+
+</ResourceDictionary>

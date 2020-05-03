@@ -81,40 +81,59 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\RelayCommandParametr.cs" />
+    <Compile Include="Helpers\Command\RelayCommandParametr.cs" />
+    <Compile Include="Helpers\MessageWindow\OpenWindowMessage.cs" />
+    <Compile Include="Helpers\MessageWindow\WindowType.cs" />
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\MenuDish.cs" />
-    <Compile Include="Helpers\FrameNavigationSevice.cs" />
-    <Compile Include="Helpers\IFrameNavigationService.cs" />
-    <Compile Include="ViewModel\AboutDishViewModel.cs" />
-    <Compile Include="ViewModel\AccountViewModel.cs" />
-    <Compile Include="ViewModel\FeedbackViewModel.cs" />
-    <Compile Include="ViewModel\HomeViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\MenuViewModel.cs" />
-    <Compile Include="ViewModel\ReservationViewModel.cs" />
-    <Compile Include="ViewModel\SettingsViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\AboutDishPage.xaml.cs">
+    <Compile Include="Helpers\Navigation\FrameNavigationSevice.cs" />
+    <Compile Include="Helpers\Navigation\IFrameNavigationService.cs" />
+    <Compile Include="Pages\Login\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Login\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Login\LoginViewModel.cs" />
+    <Compile Include="ViewModel\Login\RegistrationViewModel.cs" />
+    <Compile Include="ViewModel\Menu\AboutDishViewModel.cs" />
+    <Compile Include="ViewModel\Menu\AccountViewModel.cs" />
+    <Compile Include="ViewModel\Menu\FeedbackViewModel.cs" />
+    <Compile Include="ViewModel\Menu\HomeViewModel.cs" />
+    <Compile Include="ViewModel\Windows\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModel\Windows\MainViewModel.cs" />
+    <Compile Include="ViewModel\Menu\MenuViewModel.cs" />
+    <Compile Include="ViewModel\Menu\ReservationViewModel.cs" />
+    <Compile Include="ViewModel\Menu\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\Helpers\ViewModelLocator.cs" />
+    <Compile Include="Pages\AboutDishPage.xaml.cs">
       <DependentUpon>AboutDishPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AccountPage.xaml.cs">
+    <Compile Include="Pages\Menu\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FeedbackPage.xaml.cs">
+    <Compile Include="Pages\Menu\FeedbackPage.xaml.cs">
       <DependentUpon>FeedbackPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\HomePage.xaml.cs">
+    <Compile Include="Pages\Menu\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuPage.xaml.cs">
+    <Compile Include="Pages\Menu\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ReservationPage.xaml.cs">
+    <Compile Include="Pages\Menu\ReservationPage.xaml.cs">
       <DependentUpon>ReservationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SettingsPage.xaml.cs">
+    <Compile Include="Pages\Menu\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,41 +146,52 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Login\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Login\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Style\ListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AboutDishPage.xaml">
+    <Page Include="Pages\AboutDishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AccountPage.xaml">
+    <Page Include="Pages\Menu\AccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FeedbackPage.xaml">
+    <Page Include="Pages\Menu\FeedbackPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\HomePage.xaml">
+    <Page Include="Pages\Menu\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MenuPage.xaml">
+    <Page Include="Pages\Menu\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ReservationPage.xaml">
+    <Page Include="Pages\Menu\ReservationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SettingsPage.xaml">
+    <Page Include="Pages\Menu\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -192,14 +222,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MenuDishes\bbq.jpg" />
-    <Resource Include="Images\MenuDishes\buzhenina.jpg" />
-    <Resource Include="Images\MenuDishes\krilya.jpg" />
-    <Resource Include="Images\MenuDishes\meat.jpg" />
-    <Resource Include="Images\MenuDishes\minion.jpg" />
-    <Resource Include="Images\MenuDishes\solyanka.jpg" />
+    <Resource Include="Assets\MenuDishes\bbq.jpg" />
+    <Resource Include="Assets\MenuDishes\buzhenina.jpg" />
+    <Resource Include="Assets\MenuDishes\krilya.jpg" />
+    <Resource Include="Assets\MenuDishes\meat.jpg" />
+    <Resource Include="Assets\MenuDishes\minion.jpg" />
+    <Resource Include="Assets\MenuDishes\solyanka.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
