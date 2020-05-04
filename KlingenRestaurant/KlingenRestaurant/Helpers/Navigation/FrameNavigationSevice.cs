@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace KlingenRestaurant.Helpers
+namespace KlingenRestaurant
 {
     public class FrameNavigationService : IFrameNavigationService, INotifyPropertyChanged
     {

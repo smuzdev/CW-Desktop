@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KlingenRestaurant.Pages.Menu
+namespace KlingenRestaurant
 {
     /// <summary>
     /// Логика взаимодействия для ReservationPage.xaml

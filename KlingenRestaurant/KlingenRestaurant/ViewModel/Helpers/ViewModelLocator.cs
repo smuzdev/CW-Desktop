@@ -1,16 +1,13 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
-using KlingenRestaurant.Helpers;
-using KlingenRestaurant.ViewModel.Login;
-using KlingenRestaurant.ViewModel.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlingenRestaurant.ViewModel
+namespace KlingenRestaurant
 {
     /// <summary>
     /// This class contains static references to all the view models in the
@@ -45,7 +42,7 @@ namespace KlingenRestaurant.ViewModel
             navigationService.Configure("Registration", new Uri("../Pages/Login/RegistrationPage.xaml", UriKind.Relative));
             navigationService.Configure("Home", new Uri("../Pages/Menu/HomePage.xaml", UriKind.Relative));
             navigationService.Configure("Menu", new Uri("../Pages/Menu/MenuPage.xaml", UriKind.Relative));
-            navigationService.Configure("AboutDish", new Uri("../Pages/AboutDishPage.xaml", UriKind.Relative));
+            navigationService.Configure("AboutDish", new Uri("../Pages/Menu/AboutDishPage.xaml", UriKind.Relative));
             navigationService.Configure("Reservation", new Uri("../Pages/Menu/ReservationPage.xaml", UriKind.Relative));
             navigationService.Configure("Feedback", new Uri("../Pages/Menu/FeedbackPage.xaml", UriKind.Relative));
             navigationService.Configure("Account", new Uri("../Pages/Menu/AccountPage.xaml", UriKind.Relative));

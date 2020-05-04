@@ -110,7 +110,7 @@
     <Compile Include="ViewModel\Menu\ReservationViewModel.cs" />
     <Compile Include="ViewModel\Menu\SettingsViewModel.cs" />
     <Compile Include="ViewModel\Helpers\ViewModelLocator.cs" />
-    <Compile Include="Pages\AboutDishPage.xaml.cs">
+    <Compile Include="Pages\Menu\AboutDishPage.xaml.cs">
       <DependentUpon>AboutDishPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Menu\AccountPage.xaml.cs">
@@ -163,7 +163,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AboutDishPage.xaml">
+    <Page Include="Pages\Menu\AboutDishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

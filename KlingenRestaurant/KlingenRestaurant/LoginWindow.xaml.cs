@@ -1,7 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using KlingenRestaurant.Helpers.MessageWindow;
-using KlingenRestaurant.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

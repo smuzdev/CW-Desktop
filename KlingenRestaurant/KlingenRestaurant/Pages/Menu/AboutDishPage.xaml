@@ -1,0 +1,52 @@
+﻿<Page x:Class="KlingenRestaurant.AboutDishPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KlingenRestaurant"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+     d:DesignHeight="450" d:DesignWidth="800"
+      Title="AboutDishPage"
+      DataContext="{Binding Path=AboutDishViewModel, Source={StaticResource Locator}}">
+
+    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
+                                                 OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadedPageCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <ScrollViewer>
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" VerticalAlignment="Top">
+                        <TextBlock Text="Просмотр блюда" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="20" VerticalAlignment="Top">
+                        <StackPanel>
+                            <TextBlock Text="{Binding MenuDish.MenuDishName}" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="30"/>
+                            <TextBlock Text="{Binding MenuDish.DishType}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding MenuDish.DishServingWeight}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic" Margin="0 0 0 15"/>
+                            <Image Source="{Binding MenuDish.MenuDishImage}" Width="500" Margin="20 0 0 0" HorizontalAlignment="Center"/>
+                            <StackPanel HorizontalAlignment="Left" x:Name="ListViewMenuDish">
+                                <TextBlock Text="Описание" FontFamily="Roboto" FontSize="24" Margin="15" Foreground="#fc3912"/>
+                                <TextBlock Text="{Binding MenuDish.MenuDishDescription}" Margin="15 0 0 0" TextWrapping="Wrap" FontFamily="Roboto" FontSize="16"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
+                                    <TextBlock Text="{Binding MenuDish.DishCostValue, StringFormat={}{0:C}}" FontFamily="Roboto" FontSize="28" Foreground="#f80000" Margin="15 0"/>
+                                    <Button Height="30" Width="120" Content="В избранное" FontFamily="Roboto" FontSize="14"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </materialDesign:TransitioningContent>
+</Page>

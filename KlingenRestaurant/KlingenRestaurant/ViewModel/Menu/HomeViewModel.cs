@@ -6,10 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using KlingenRestaurant.Helpers;
 using KlingenRestaurant.Model;
 
-namespace KlingenRestaurant.ViewModel
+namespace KlingenRestaurant
 {
     public class HomeViewModel : ViewModelBase
     {

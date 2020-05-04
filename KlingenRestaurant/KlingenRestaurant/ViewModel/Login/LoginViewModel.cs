@@ -1,8 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using KlingenRestaurant.Helpers;
-using KlingenRestaurant.Helpers.MessageWindow;
 using System;
 using System.Collections.Generic;
 using System.Linq;

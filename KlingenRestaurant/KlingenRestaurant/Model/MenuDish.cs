@@ -12,13 +12,17 @@ namespace KlingenRestaurant
         public string MenuDishDescription { get; private set; }
         public string MenuDishImage { get; private set; }
         public double  DishCostValue { get; private set; }
+        public string DishServingWeight { get; private set; }
+        public string  DishType { get; private set; }
 
-        public MenuDish(string menuDishName, string menuDishDescription, string menuDishImage, double dishCostValue)
+        public MenuDish(string menuDishName, string dishType, string menuDishDescription, string menuDishImage, double dishCostValue, string dishServingWeight)
         {
             MenuDishName = menuDishName;
+            DishType = dishType;
             MenuDishDescription = menuDishDescription;
             MenuDishImage = menuDishImage;
             DishCostValue = dishCostValue;
+            DishServingWeight = dishServingWeight;
         }
 
     }

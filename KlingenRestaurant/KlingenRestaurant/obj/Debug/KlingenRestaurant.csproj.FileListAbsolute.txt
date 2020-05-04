@@ -38,7 +38,6 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\LoginWindow.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Login\LoginPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Login\RegistrationPage.g.cs
-D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\AboutDishPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\AccountPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\FeedbackPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\HomePage.g.cs
@@ -48,7 +47,6 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\LoginWindow.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Login\LoginPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Login\RegistrationPage.baml
-D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\AboutDishPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\AccountPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\FeedbackPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\HomePage.baml
@@ -56,3 +54,5 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\ReservationPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\SettingsPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Style\Colors.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\AboutDishPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\AboutDishPage.baml
