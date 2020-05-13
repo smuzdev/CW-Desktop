@@ -10,6 +10,10 @@
       Title="RegistrationPage"
       DataContext="{Binding RegistrationViewModel, Source={StaticResource Locator}}">
 
+    <Page.Resources>
+        <local:ParametrizedBooleanToVisibilityConverter x:Key="ParametrizedBooleanToVisibilityConverter"/>
+    </Page.Resources>
+    
     <Grid>
         <materialDesign:TransitioningContent Grid.Row="1" x:Name="TransitioningContentSlide"
         OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight, Duration=0:0:0.3}">
@@ -32,9 +36,48 @@
                 <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
                     <TextBlock Text="REGISTRATION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18" FontFamily="Roboto"/>
                     <StackPanel VerticalAlignment="Center" Margin="10">
-                        <TextBox materialDesign:HintAssist.Hint="NAME" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10"/>
-                        <TextBox materialDesign:HintAssist.Hint="EMAIL" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10"/>
-                        <PasswordBox materialDesign:HintAssist.Hint="PASSWORD" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10"/>
+                        
+                        <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="NAME" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
+                            <TextBox.Text>
+                                <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:NotEmptyValidationRule  />
+                                        <local:MinimumCharacterRule MinimumCharacters="5" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <TextBox x:Name="loginTextBox" materialDesign:HintAssist.Hint="LOGIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
+                            <TextBox.Text>
+                                <Binding Path="Login" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:NotEmptyValidationRule  />
+                                        <local:MinimumCharacterRule MinimumCharacters="5" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+
+                        <PasswordBox Margin="0 10" Padding="0" x:Name="passwordBox" materialDesign:HintAssist.Hint="Password"  MaxLength="20">
+                                <PasswordBox.Style>
+                                    <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                                        <Style.Setters>
+                                            <Setter Property="local:PasswordBoxAssistant.BindPassword" Value="True"/>
+                                            <Setter Property="local:PasswordBoxAssistant.BoundPassword">
+                                                <Setter.Value>
+                                                    <Binding Path="Password" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                                                        <Binding.ValidationRules>
+                                                            <local:NotEmptyValidationRule  />
+                                                            <local:MinimumCharacterRule MinimumCharacters="5" />
+                                                        </Binding.ValidationRules>
+                                                    </Binding>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style.Setters>
+                                    </Style>
+                                </PasswordBox.Style>
+                            </PasswordBox>
                     </StackPanel>
                 </Grid>
                 <Button Command="{Binding RegisterCommand}" VerticalAlignment="Bottom" Margin="0,85" Width="150" Background="#fc3912" BorderBrush="#fc3912" Content="SIGN UP"/>

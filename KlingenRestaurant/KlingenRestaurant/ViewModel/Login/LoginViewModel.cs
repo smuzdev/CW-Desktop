@@ -1,10 +1,12 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Threading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace KlingenRestaurant
@@ -13,31 +15,20 @@ namespace KlingenRestaurant
     {
         #region Private members
         private IFrameNavigationService _navigationService;
-
-        private User user;
-
+        private RestaurantContext context = new RestaurantContext();
         private string login;
+        private string password;
+
+        private bool isVisibleProgressBar;
+
+        private bool isOpenDialog;
+
+        private string message;
         #endregion
 
 
         #region Public Members
 
-        public User User
-        {
-            get
-            {
-                return user;
-            }
-            set
-            {
-                if (user == value)
-                {
-                    return;
-                }
-                user = value;
-                RaisePropertyChanged();
-            }
-        }
         public string Login
         {
             get
@@ -51,6 +42,78 @@ namespace KlingenRestaurant
                     return;
                 }
                 login = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return password;
+            }
+            set
+            {
+                if (password == value)
+                {
+                    return;
+                }
+                password = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsVisibleProgressBar
+        {
+            get
+            {
+                return isVisibleProgressBar;
+            }
+            set
+            {
+                if (isVisibleProgressBar == value)
+                {
+                    return;
+                }
+                isVisibleProgressBar = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Is Open Dialog 
+        /// </summary>
+        public bool IsOpenDialog
+        {
+            get
+            {
+                return isOpenDialog;
+            }
+            set
+            {
+                if (isOpenDialog == value)
+                {
+                    return;
+                }
+                isOpenDialog = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Message for the dialog  
+        /// </summary>
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                if (message == value)
+                {
+                    return;
+                }
+                message = value;
                 RaisePropertyChanged();
             }
         }
@@ -74,22 +137,47 @@ namespace KlingenRestaurant
             }
         }
 
-        private RelayCommand _loginCommand;
-        public RelayCommand LoginCommand
+        private RelayCommandParametr _loginCommand;
+        public RelayCommandParametr LoginCommand
         {
             get
             {
                 return _loginCommand
-                    ?? (_loginCommand = new RelayCommand(
-                    () =>
-                    {
-                        user = new User("Login", login, "password");
-                        Messenger.Default.Send<OpenWindowMessage>(
-                                 new OpenWindowMessage() { Type = WindowType.kMain, Argument = user });
+                    ?? (_loginCommand = new RelayCommandParametr(
+                    (x) =>
+                        {
+                            IsVisibleProgressBar = true;
+                            ThreadPool.QueueUserWorkItem(
+                            o =>
+                            {
+                                string tmpPassword = User.getHash(password);
+                                if (context.Users.FirstOrDefault(x1 => x1.Login == login && x1.Password == tmpPassword) != null)
+                                {
 
-                    }));
+                                    User user = context.Users.FirstOrDefault(x1 => x1.Login == login);
+                                    context.SaveChanges();
+                                    DispatcherHelper.CheckBeginInvokeOnUI(
+                                        () =>
+                                        {
+                                            Messenger.Default.Send<OpenWindowMessage>(
+                                            new OpenWindowMessage() { Type = WindowType.kMain, Argument = user });
+                                        }
+                                    );
+                                }
+                                else
+                                {
+                                    IsVisibleProgressBar = false;
+                                    Message = "Incorrect data!";
+                                    IsOpenDialog = true;
+                                }
+                            }
+                    );
+                        },
+                    (x) =>
+                    Login?.Length > 0 && Password?.Length > 0));
             }
         }
+
 
         #endregion
 
