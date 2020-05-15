@@ -44,10 +44,10 @@
                         </Rectangle.Effect>
                     </Rectangle>
                     <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
-                        <TextBlock Text="REGISTRATION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18" FontFamily="Roboto"/>
+                        <TextBlock Text="РЕГИСТРАЦИЯ" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18" FontFamily="Roboto"/>
                         <StackPanel VerticalAlignment="Center" Margin="10">
 
-                            <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="NAME" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
+                            <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="ИМЯ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
                                 <TextBox.Text>
                                     <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
@@ -58,7 +58,7 @@
                                 </TextBox.Text>
                             </TextBox>
 
-                            <TextBox x:Name="loginTextBox" materialDesign:HintAssist.Hint="LOGIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
+                            <TextBox x:Name="loginTextBox" materialDesign:HintAssist.Hint="ЛОГИН" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
                                 <TextBox.Text>
                                     <Binding Path="Login" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
@@ -69,7 +69,7 @@
                                 </TextBox.Text>
                             </TextBox>
 
-                            <PasswordBox Margin="0 10" Padding="0" x:Name="passwordBox" materialDesign:HintAssist.Hint="PASSWORD"  MaxLength="20">
+                            <PasswordBox Margin="0 10" Padding="0" x:Name="passwordBox" materialDesign:HintAssist.Hint="ПАРОЛЬ"  MaxLength="20">
                                 <PasswordBox.Style>
                                     <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
                                         <Style.Setters>

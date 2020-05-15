@@ -12,6 +12,10 @@ namespace KlingenRestaurant
     {
         private IFrameNavigationService _navigationService;
         private string _reservationPageText = "Reservation Page";
+
+        private DateTime futureValidatingDate;
+
+
         public string ReservationPageText
         {
             get
@@ -30,10 +34,30 @@ namespace KlingenRestaurant
                 RaisePropertyChanged();
             }
         }
-    
+
+        public DateTime FutureValidatingDate
+        {
+            get
+            {
+                return futureValidatingDate;
+            }
+
+            set
+            {
+                if (futureValidatingDate == value)
+                {
+                    return;
+                }
+
+                futureValidatingDate = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public ReservationViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
+            FutureValidatingDate = DateTime.Now;
         }
 
     }

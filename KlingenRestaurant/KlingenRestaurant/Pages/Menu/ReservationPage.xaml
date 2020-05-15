@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KlingenRestaurant"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -10,6 +11,98 @@
       DataContext="{Binding Path=ReservationViewModel, Source={StaticResource Locator}}">
 
     <Grid>
-        <TextBlock Text="{Binding ReservationPageText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Бронирование" Margin="10" FontFamily="AnastasiaScriptC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <StackPanel>
+                        <TextBlock Text="Выберите столик" FontSize="24" FontFamily="Roboto" FontWeight="Bold" Foreground="#fc3912" Margin="15" HorizontalAlignment="Center"/>
+                        <Image Source="/Assets/tables.jpg" Width="auto" MaxWidth="450" Margin="10 0">
+                            <Image.Effect>
+                                <DropShadowEffect Color="#FFA29494" BlurRadius="15" />
+                            </Image.Effect>
+                        </Image>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <StackPanel HorizontalAlignment="Center" Width="300">
+                        <TextBlock Text="Заполните форму" FontSize="24" FontFamily="Roboto" FontWeight="Bold" Foreground="#fc3912" Margin="15"/>
+                        <!--<TextBlock Text="Имя" FontSize="20" FontFamily="Roboto"/>
+                        <TextBox Height="30"/>-->
+                        <TextBox x:Name="inputNameTextBox" materialDesign:HintAssist.Hint="ВАШЕ ИМЯ" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                            <TextBox.Text>
+                                <Binding Path="Login" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:NotEmptyValidationRule  />
+                                        <local:MinimumCharacterRule MinimumCharacters="5" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <TextBox x:Name="phoneTextBox" materialDesign:HintAssist.Hint="НОМЕР ТЕЛЕФОНА" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
+                            <TextBox.Text>
+                                <Binding Path="Login" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <local:NotEmptyValidationRule  />
+                                        <local:MinimumCharacterRule MinimumCharacters="5" />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Дата:" FontSize="16" FontFamily="Roboto" Margin="0 10 10 0"/>
+                            <DatePicker x:Name="FutureDatePicker" Width="100" materialDesign:HintAssist.Hint="Дата">
+                                <DatePicker.SelectedDate>
+                                    <Binding Path="FutureValidatingDate" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <local:FutureDateValidationRule ValidatesOnTargetUpdated="True"/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </DatePicker.SelectedDate>
+                            </DatePicker>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Время:" FontSize="16" FontFamily="Roboto" Margin="0 20 10 0"/>
+                            <materialDesign:TimePicker Is24Hours="True" x:Name="PresetTimePicker" Width="100" Margin="0 10 0 0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <TextBlock Text="Номер столика:" FontSize="16" FontFamily="Roboto" Margin="0 20 10 0"/>
+                            <ComboBox materialDesign:HintAssist.Hint="Не указано" Width="100" VerticalAlignment="Bottom" >
+                                <ComboBox.SelectedItem>
+                                    <Binding Path="SelectedValueOne" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                        <!--<Binding.ValidationRules>
+                                        <local::NotEmptyValidationRule ValidatesOnTargetUpdated="True"/>
+                                    </Binding.ValidationRules>-->
+                                    </Binding>
+                                </ComboBox.SelectedItem>
+                                <ComboBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ComboBox.ItemsPanel>
+                            </ComboBox>
+                        </StackPanel>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                                 Margin="0 20 0 0"
+                                 VerticalAlignment="Top"
+                                 Height="100"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 VerticalScrollBarVisibility="Auto"
+                                 materialDesign:HintAssist.Hint="Ваши пожелания" />
+                        <Button Height="30" Width="150" Content="Забронировать" FontFamily="Roboto" FontSize="16" Foreground="#ffffff" Margin="0 30 0 0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>
