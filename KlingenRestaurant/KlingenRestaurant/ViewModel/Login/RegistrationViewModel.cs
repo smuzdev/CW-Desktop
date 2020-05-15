@@ -156,6 +156,19 @@ namespace KlingenRestaurant
             }
         }
 
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
+            }
+        }
 
         private RelayCommandParametr _registerCommand;
         public RelayCommandParametr RegisterCommand
@@ -166,35 +179,42 @@ namespace KlingenRestaurant
                     ?? (_registerCommand = new RelayCommandParametr(
                     (x) =>
                     {
-                                if (context.Users.FirstOrDefault(x1 => x1.Login == login) != null)
-                                {
-                                    IsVisibleProgressBar = false;
-                                    Message = "Пользователь с таким логином уже зарегистрирован";
-                                    IsOpenDialog = true;
-                                }
-                                //ADD VALIDATION HERE
-                                else if (Login != null && Password != null && Name != null)
-                                {
-                                    string hashPass = User.getHash(Password);
-                                    User user = new User(Name, Login, hashPass);
-                                    context.Users.Add(user);
-                                    context.SaveChanges();
-                                    DispatcherHelper.CheckBeginInvokeOnUI(
-                                        () =>
-                                        {
-                                            Messenger.Default.Send<OpenWindowMessage>(
-                                            new OpenWindowMessage() { Type = WindowType.kMain, Argument = user });
-                                        }
-                                        );
-                                }
-                                else
-                                {
-                                    IsVisibleProgressBar = false;
-                                    Message = "Incorrect data!";
-                                    IsOpenDialog = true;
-                                }
-                    }
-                    ));
+                        IsVisibleProgressBar = true;
+                        ThreadPool.QueueUserWorkItem(
+                        o =>
+                        {
+                            if (context.Users.FirstOrDefault(x1 => x1.Login == login) != null)
+                            {
+                                IsVisibleProgressBar = false;
+                                Message = "Пользователь с таким логином уже зарегистрирован.";
+                                IsOpenDialog = true;
+                            }
+                            //ADD VALIDATION HERE
+                            else if (Login != null && Password != null && Name != null)
+                            {
+                                string hashPass = User.getHash(Password);
+                                User user = new User(Name, Login, hashPass);
+                                context.Users.Add(user);
+                                context.SaveChanges();
+                                DispatcherHelper.CheckBeginInvokeOnUI(
+                                    () =>
+                                    {
+                                        Messenger.Default.Send<OpenWindowMessage>(
+                                        new OpenWindowMessage() { Type = WindowType.kMain, Argument = user });
+                                    }
+                                    );
+                            }
+                            else
+                            {
+                                IsVisibleProgressBar = false;
+                                Message = "Некорректно введены данные.";
+                                IsOpenDialog = true;
+                            }
+                        }
+                    );
+                    },
+                    (x1) =>
+                    Name?.Length > 0 && Login?.Length > 0 && Password?.Length > 0));
             }
         }
 

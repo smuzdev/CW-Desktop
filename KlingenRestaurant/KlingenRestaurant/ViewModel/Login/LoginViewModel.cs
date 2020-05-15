@@ -137,6 +137,20 @@ namespace KlingenRestaurant
             }
         }
 
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
+            }
+        }
+
         private RelayCommandParametr _loginCommand;
         public RelayCommandParametr LoginCommand
         {
@@ -167,7 +181,7 @@ namespace KlingenRestaurant
                                 else
                                 {
                                     IsVisibleProgressBar = false;
-                                    Message = "Incorrect data!";
+                                    Message = "Пользователь не зарегистрирован.";
                                     IsOpenDialog = true;
                                 }
                             }
