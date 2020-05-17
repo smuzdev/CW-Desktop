@@ -129,7 +129,6 @@ namespace KlingenRestaurant
         }
 
        
-
         public MainViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;

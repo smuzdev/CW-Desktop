@@ -27,7 +27,6 @@ namespace KlingenRestaurant
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<HomeViewModel>();
             SimpleIoc.Default.Register<MenuViewModel>();
-            SimpleIoc.Default.Register<ReservationViewModel>();
             SimpleIoc.Default.Register<FeedbackViewModel>();
             SimpleIoc.Default.Register<AccountViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
@@ -104,13 +103,6 @@ namespace KlingenRestaurant
             }
         }
 
-        public ReservationViewModel ReservationViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<ReservationViewModel>();
-            }
-        }
 
         public FeedbackViewModel FeedbackViewModel
         {

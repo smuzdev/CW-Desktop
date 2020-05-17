@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KlingenRestaurant.Model
+namespace KlingenRestaurant
 {
     public class NewsBlock
     {
+        public int NewsBlockId { get; set; }
         public string NewsBlockTitle { get; private set; }
         public string NewsBlockDescription { get; private set; }
         public string NewsBlockImage { get; private set; }

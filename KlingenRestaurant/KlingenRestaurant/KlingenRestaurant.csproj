@@ -89,12 +89,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataLayer\Model\Reservation.cs" />
+    <Compile Include="DataLayer\Model\Table.cs" />
     <Compile Include="Helpers\AttachedProperty\PasswordBoxAssistant.cs" />
     <Compile Include="Helpers\Command\RelayCommandParametr.cs" />
     <Compile Include="Helpers\Converters\ParametrizedBooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\MessageWindow\OpenWindowMessage.cs" />
     <Compile Include="Helpers\MessageWindow\WindowType.cs" />
-    <Compile Include="Helpers\Validation\FutureDateValidationRule.cs" />
+    <Compile Include="Helpers\Validation\PhoneNumberValidationRule.cs" />
+    <Compile Include="Helpers\Validation\ReservationDateValidationRule.cs" />
     <Compile Include="Helpers\Validation\MinimumCharacterRule.cs" />
     <Compile Include="Helpers\Validation\NotEmptyValidationRule.cs" />
     <Compile Include="LoginWindow.xaml.cs">

@@ -98,8 +98,8 @@
                                 IsIndeterminate="{Binding IsVisibleProgressBar}" />
                         </StackPanel>
                     </Grid>
-                    <Button Command="{Binding RegisterCommand}" VerticalAlignment="Bottom" Margin="0,85" Width="150" Background="#fc3912" BorderBrush="#fc3912" Content="SIGN UP"/>
-                    <Button Command="{Binding LoginCommand}" VerticalAlignment="Bottom" Margin="0,45" Width="150" Content="SIGN IN"  Background="#ffffff" BorderBrush="#fc3912" Foreground="#fc3912"/>
+                    <Button Command="{Binding RegisterCommand}" VerticalAlignment="Bottom" Margin="0,85" Width="150" Background="#fc3912" BorderBrush="#fc3912" Content="Зарегистрировать"/>
+                    <Button Command="{Binding LoginCommand}" VerticalAlignment="Bottom" Margin="0,45" Width="150" Content="Вход" Background="#ffffff" BorderBrush="#fc3912" Foreground="#fc3912"/>
                 </Grid>
             </materialDesign:TransitioningContent>
         </Grid>

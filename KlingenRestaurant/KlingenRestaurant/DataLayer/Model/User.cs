@@ -17,6 +17,8 @@ namespace KlingenRestaurant
 
         public string Password { get; set; }
 
+        public virtual List<Reservation> Reservations { get; set; }
+
         public User(){}
 
         public User(string name, string login, string password)
