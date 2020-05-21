@@ -21,16 +21,9 @@ namespace KlingenRestaurant
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            SimpleIoc.Default.Register<LoginViewModel>();
-            SimpleIoc.Default.Register<RegistrationViewModel>();
             SimpleIoc.Default.Register<LoginWindowViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<HomeViewModel>();
-            SimpleIoc.Default.Register<MenuViewModel>();
-            SimpleIoc.Default.Register<FeedbackViewModel>();
-            SimpleIoc.Default.Register<AccountViewModel>();
-            SimpleIoc.Default.Register<SettingsViewModel>();
-            SimpleIoc.Default.Register<AboutDishViewModel>();
+            SimpleIoc.Default.Register<AdminViewModel>();
             SetupNavigation();
         }
 
@@ -45,7 +38,10 @@ namespace KlingenRestaurant
             navigationService.Configure("Reservation", new Uri("../Pages/Menu/ReservationPage.xaml", UriKind.Relative));
             navigationService.Configure("Feedback", new Uri("../Pages/Menu/FeedbackPage.xaml", UriKind.Relative));
             navigationService.Configure("Account", new Uri("../Pages/Menu/AccountPage.xaml", UriKind.Relative));
-            navigationService.Configure("Settings", new Uri("../Pages/Menu/SettingsPage.xaml", UriKind.Relative));
+            navigationService.Configure("Admin", new Uri("../Pages/Menu/AdminPage.xaml", UriKind.Relative));
+            navigationService.Configure("AddMenuDish", new Uri("../Pages/Admin/AddMenuDishPage.xaml", UriKind.Relative));
+            navigationService.Configure("AddNewsBlock", new Uri("../Pages/Admin/AddNewsBlockPage.xaml", UriKind.Relative));
+            navigationService.Configure("ReservedTables", new Uri("../Pages/Admin/ReservedTablesPage.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel Main
@@ -64,67 +60,11 @@ namespace KlingenRestaurant
             }
         }
 
-        public LoginViewModel LoginViewModel
+        public AdminViewModel AdminViewModel
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<LoginViewModel>();
-            }
-        }
-
-        public RegistrationViewModel RegistrationViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<RegistrationViewModel>();
-            }
-        }
-
-        public HomeViewModel HomeViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<HomeViewModel>();
-            }
-        }
-        public MenuViewModel MenuViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MenuViewModel>();
-            }
-        }
-
-        public AboutDishViewModel AboutDishViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<AboutDishViewModel>();
-            }
-        }
-
-
-        public FeedbackViewModel FeedbackViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<FeedbackViewModel>();
-            }
-        }
-
-        public AccountViewModel AccountViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<AccountViewModel>();
-            }
-        }
-
-        public SettingsViewModel SettingsViewModel
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<SettingsViewModel>();
+                return ServiceLocator.Current.GetInstance<AdminViewModel>();
             }
         }
 

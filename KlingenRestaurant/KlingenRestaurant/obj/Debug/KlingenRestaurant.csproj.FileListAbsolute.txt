@@ -34,7 +34,6 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\HomePage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\MenuPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\ReservationPage.g.cs
-D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\SettingsPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\App.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant_MarkupCompile.cache
@@ -52,11 +51,18 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\HomePage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\MenuPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\ReservationPage.baml
-D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\SettingsPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.g.resources
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.Properties.Resources.resources
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.csproj.GenerateResource.cache
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.csproj.CopyComplete
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.exe
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.pdb
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\AdminPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\AdminPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.csprojAssemblyReference.cache
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\AddMenuDishPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\AddMenuDishPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\AddNewsBlockPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\AddNewsBlockPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\ReservedTablesPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\ReservedTablesPage.baml

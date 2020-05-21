@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:KlingenRestaurant"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FeedbackPage"
-      DataContext="{Binding Path=FeedbackViewModel, Source={StaticResource Locator}}">
+      Title="FeedbackPage">
 
     <Grid>
         <TextBlock Text="{Binding FeedbackPageText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>

@@ -8,9 +8,11 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AboutDishPage"
-      DataContext="{Binding Path=AboutDishViewModel, Source={StaticResource Locator}}">
+      Title="AboutDishPage">
 
+    <Page.Resources>
+        <local:EnumConverter x:Key="EnumConverter"/>
+    </Page.Resources>
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
                                                  OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
 
@@ -32,7 +34,7 @@
                     <Grid Grid.Row="1" Margin="20" VerticalAlignment="Top">
                         <StackPanel>
                             <TextBlock Text="{Binding MenuDish.MenuDishName}" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="30"/>
-                            <TextBlock Text="{Binding MenuDish.DishType}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding MenuDish.DishType, Converter={StaticResource EnumConverter}}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic"/>
                             <TextBlock Text="{Binding MenuDish.DishServingWeight}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic" Margin="0 0 0 15"/>
                             <Image Source="{Binding MenuDish.MenuDishImage}" Width="500" Margin="20 0 0 0" HorizontalAlignment="Center"/>
                             <StackPanel HorizontalAlignment="Left" x:Name="ListViewMenuDish">

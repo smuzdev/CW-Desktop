@@ -12,6 +12,7 @@ namespace KlingenRestaurant
     {
         public int ReservationId { get; set; }
         public int TableId { get; set; }
+        public string ClientName { get; set; }
         public int UserId { get; set; }
         [ForeignKey("TableId")]  
         public Table Table { get; set; }
@@ -30,6 +31,7 @@ namespace KlingenRestaurant
         public Reservation(User user, string phone, DateTime reservationDate, Table table, string wishes)
         {
             UserId = user.UserId;
+            ClientName = user.Name;
             Phone = phone;
             ReservationDate = reservationDate;
             TableId = table.TableId;

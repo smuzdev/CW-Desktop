@@ -12,8 +12,8 @@ namespace KlingenRestaurant
     public class HomeViewModel : ViewModelBase
     {
         private IFrameNavigationService _navigationService;
-
         private ObservableCollection<NewsBlock> newsBlocks = new ObservableCollection<NewsBlock>();
+        private RestaurantContext context = new RestaurantContext();
 
         public ObservableCollection<NewsBlock> NewsBlocks
         {
@@ -43,25 +43,23 @@ namespace KlingenRestaurant
             }
         }
 
+        private RelayCommandParametr loadedCommand;
+        public RelayCommandParametr LoadedCommand
+        {
+            get
+            {
+                return loadedCommand
+                    ?? (loadedCommand = new RelayCommandParametr(
+                    obj =>
+                    {
+                        NewsBlocks = new ObservableCollection<NewsBlock>(context.News.AsNoTracking().ToList());
+
+                    }));
+            }
+        }
         public HomeViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
-            newsBlocks.Add(new NewsBlock("Попробуй новинку!", 
-                                         "Жареное мясо — одно из древнейших блюд в истории" +
-                                         " человечества. Вкус к нему заложен в нас генетически. Вероятно, именно поэтому так" +
-                                         " много поклонников у аппетитных стейков, шашлыков «с дымком», поджаренных на гриле" +
-                                         " куриных крылышек и свиных сосисок. Фантастический вкус — не основная ценность такой пищи" +
-                                         ". Она также дает энергию, насыщает организм натуральным белком и витаминами. Мясные блюда" +
-                                         " отлично сочетаются с красным вином, хорошим пивом и более крепкими напитками.",
-                                         "/Assets/News/1.jpg"));
-            newsBlocks.Add(new NewsBlock("Оцени наш фирменный соус Сальса!", "Традиционный соус мексиканской кухни. Чаще всего сальса" +
-                                        " изготовляется из отваренных и измельчённых томатов или томатильо и чили, с добавлением кориандра, лука, чеснока и чёрного перца.",
-                                        "/Assets/News/2.jpg"));
-            newsBlocks.Add(new NewsBlock("Чем полезны овощи?", "Овощи — неотъемлемая часть рациона человека. Они крайне полезны благодаря" +
-                " высокому содержанию в них углеводов, различных кислот, витаминов и активных элементов в легкой для усвоения организмом форме." +
-                " Разнообразие вышеперечисленных элементов в составе овощей и обусловливает их вкус и питательную ценность.",
-                                         "/Assets/News/3.jpg"));
-
         }
     }
 }

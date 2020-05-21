@@ -181,7 +181,7 @@ namespace KlingenRestaurant
                                 else
                                 {
                                     IsVisibleProgressBar = false;
-                                    Message = "Пользователь не зарегистрирован.";
+                                    Message = "Неверный логин или пароль!";
                                     IsOpenDialog = true;
                                 }
                             }

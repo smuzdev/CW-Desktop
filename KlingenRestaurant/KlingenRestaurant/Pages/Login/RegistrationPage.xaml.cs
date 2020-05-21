@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Ioc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace KlingenRestaurant
     {
         public RegistrationPage()
         {
+            DataContext = new RegistrationViewModel(SimpleIoc.Default.GetInstance<IFrameNavigationService>());
             InitializeComponent();
         }
     }

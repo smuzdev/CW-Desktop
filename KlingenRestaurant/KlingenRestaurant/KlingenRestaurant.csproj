@@ -68,6 +68,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -89,10 +90,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataLayer\Model\DishType.cs" />
     <Compile Include="DataLayer\Model\Reservation.cs" />
     <Compile Include="DataLayer\Model\Table.cs" />
     <Compile Include="Helpers\AttachedProperty\PasswordBoxAssistant.cs" />
     <Compile Include="Helpers\Command\RelayCommandParametr.cs" />
+    <Compile Include="Helpers\Converters\ByteToBitmapConverter.cs" />
+    <Compile Include="Helpers\Converters\EnumConverter.cs" />
+    <Compile Include="Helpers\Converters\EnumToItemsSource.cs" />
     <Compile Include="Helpers\Converters\ParametrizedBooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\MessageWindow\OpenWindowMessage.cs" />
     <Compile Include="Helpers\MessageWindow\WindowType.cs" />
@@ -108,6 +113,15 @@
     <Compile Include="DataLayer\Model\MenuDish.cs" />
     <Compile Include="Helpers\Navigation\FrameNavigationSevice.cs" />
     <Compile Include="Helpers\Navigation\IFrameNavigationService.cs" />
+    <Compile Include="Pages\Admin\AddMenuDishPage.xaml.cs">
+      <DependentUpon>AddMenuDishPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\AddNewsBlockPage.xaml.cs">
+      <DependentUpon>AddNewsBlockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admin\ReservedTablesPage.xaml.cs">
+      <DependentUpon>ReservedTablesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +129,9 @@
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataLayer\EF\RestaurantContext.cs" />
+    <Compile Include="ViewModel\Admin\AddMenuDishViewModel.cs" />
+    <Compile Include="ViewModel\Admin\AddNewsBlockViewModel.cs" />
+    <Compile Include="ViewModel\Admin\ReservedTablesViewModel.cs" />
     <Compile Include="ViewModel\Login\LoginViewModel.cs" />
     <Compile Include="ViewModel\Login\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\Menu\AboutDishViewModel.cs" />
@@ -125,7 +142,7 @@
     <Compile Include="ViewModel\Windows\MainViewModel.cs" />
     <Compile Include="ViewModel\Menu\MenuViewModel.cs" />
     <Compile Include="ViewModel\Menu\ReservationViewModel.cs" />
-    <Compile Include="ViewModel\Menu\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\Menu\AdminViewModel.cs" />
     <Compile Include="ViewModel\Helpers\ViewModelLocator.cs" />
     <Compile Include="Pages\Menu\AboutDishPage.xaml.cs">
       <DependentUpon>AboutDishPage.xaml</DependentUpon>
@@ -145,8 +162,8 @@
     <Compile Include="Pages\Menu\ReservationPage.xaml.cs">
       <DependentUpon>ReservationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Menu\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    <Compile Include="Pages\Menu\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -164,6 +181,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Admin\AddMenuDishPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Admin\AddNewsBlockPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Admin\ReservedTablesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Login\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,7 +233,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Menu\SettingsPage.xaml">
+    <Page Include="Pages\Menu\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,6 +287,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\tables.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\noPhoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

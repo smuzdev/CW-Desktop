@@ -110,16 +110,15 @@
                     </ListViewItem>
                     <ListViewItem>
                         <StackPanel Margin="17" Orientation="Horizontal" Height="20">
-                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
-                            <TextBlock Text="Настройки" Margin="20 0" FontSize="18" VerticalAlignment="Center" Foreground="White"/>
+                            <materialDesign:PackIcon Kind="AddToPhotos" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="Админ" Margin="20 0" FontSize="18" VerticalAlignment="Center" Foreground="White"/>
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                                <i:InvokeCommandAction Command="{Binding SettingsCommand}"/>
+                                <i:InvokeCommandAction Command="{Binding AdminCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-
                 </ListView>
             </Grid>
         </Grid>

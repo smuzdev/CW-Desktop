@@ -9,19 +9,19 @@
         mc:Ignorable="d"
         Title="LoginWindow" AllowsTransparency="True" ResizeMode="NoResize"
         Height="500" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        MouseDown="LoginWindow_MouseDown"
+        MouseDown="LoginWindow_MouseDown" Background="Transparent"  
         DataContext="{Binding LoginWindowViewModel, Source={StaticResource Locator}}">
-    
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedPageCommand, Mode=OneWay}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Border CornerRadius="15" Background="#FFFFFF">
-            <Grid>
 
-                <Grid Grid.Row="1">
+    <Grid Background="Transparent">
+        <Border Background="#ffffff" CornerRadius="15">
+            <Grid Background="Transparent">
+                <Grid Grid.Row="1" >
                     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 </Grid>
                 <Button Click="Close_Button_Click" Padding="1"  VerticalAlignment="Top" HorizontalAlignment="Right" Width="25" Height="25"  Margin="0 3 5 0" Background="Transparent" BorderBrush="Transparent">
@@ -29,6 +29,6 @@
                 </Button>
             </Grid>
         </Border>
-        <Grid/>
     </Grid>
+
 </Window>

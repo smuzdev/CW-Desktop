@@ -13,24 +13,22 @@ namespace KlingenRestaurant
 {
     public class RegistrationViewModel : ViewModelBase
     {
-
+        #region Private members
         private IFrameNavigationService _navigationService;
-
         private RestaurantContext context = new RestaurantContext();
         private string name;
-
         private string login;
-
         private string password;
-
         private string message;
         /// <summary>
         /// Is request to DB is send ?
         /// </summary>
         private bool isVisibleProgressBar;
-
         private bool isOpenDialog;
 
+        #endregion
+
+        #region Public members
         public string Name
         {
             get
@@ -140,6 +138,9 @@ namespace KlingenRestaurant
             }
         }
 
+        #endregion
+
+        #region Commands
         private RelayCommand _loginCommand;
         public RelayCommand LoginCommand
         {
@@ -218,10 +219,14 @@ namespace KlingenRestaurant
             }
         }
 
+        #endregion
+
+        #region ctor
         public RegistrationViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
         }
 
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace KlingenRestaurant
     public class MainViewModel : ViewModelBase
     { 
         private User user;
+        private bool isOpenDialog;
         private IFrameNavigationService _navigationService;
 
         public User User
@@ -26,6 +27,23 @@ namespace KlingenRestaurant
                     return;
                 }
                 user = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsOpenDialog
+        {
+            get
+            {
+                return isOpenDialog;
+            }
+            set
+            {
+                if (isOpenDialog == value)
+                {
+                    return;
+                }
+                isOpenDialog = value;
                 RaisePropertyChanged();
             }
         }
@@ -114,21 +132,36 @@ namespace KlingenRestaurant
             }
         }
 
-        private RelayCommand _settingsCommand;
-        public RelayCommand SettingsCommand
+        private RelayCommand _adminCommand;
+        public RelayCommand AdminCommand
         {
             get
             {
-                return _settingsCommand
-                       ?? (_settingsCommand = new RelayCommand(
+                return _adminCommand
+                       ?? (_adminCommand = new RelayCommand(
                            () =>
                            {
-                               _navigationService.NavigateTo("Settings");
+                               _navigationService.NavigateTo("Admin");
                            }));
             }
         }
 
-       
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
+            }
+        }
+
+        public string Message { get; internal set; }
+
         public MainViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;

@@ -18,9 +18,9 @@ namespace KlingenRestaurant
     /// <summary>
     /// Логика взаимодействия для SettingsPage.xaml
     /// </summary>
-    public partial class SettingsPage : Page
+    public partial class AdminPage : Page
     {
-        public SettingsPage()
+        public AdminPage()
         {
             InitializeComponent();
         }

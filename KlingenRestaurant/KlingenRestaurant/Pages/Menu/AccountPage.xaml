@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:KlingenRestaurant"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AccountPage"
-      DataContext="{Binding Path=AccountViewModel, Source={StaticResource Locator}}">
+      Title="AccountPage">
 
     <Grid>
         <TextBlock Text="{Binding AccountPageText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>

@@ -47,19 +47,11 @@
                     <Grid Grid.Column="1">
                         <StackPanel HorizontalAlignment="Center" Width="300">
                             <TextBlock Text="Заполните форму" FontSize="24" FontFamily="Roboto" FontWeight="Bold" Foreground="#fc3912" Margin="15"/>
-                            <!--<TextBlock Text="Имя" FontSize="20" FontFamily="Roboto"/>
-                        <TextBox Height="30"/>-->
-                            <TextBox x:Name="clientNameTextBox" materialDesign:HintAssist.Hint="ВАШЕ ИМЯ" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
-                                <TextBox.Text>
-                                    <Binding Path="ClientName" UpdateSourceTrigger="PropertyChanged">
-                                        <Binding.ValidationRules>
-                                            <local:NotEmptyValidationRule  />
-                                            <local:MinimumCharacterRule MinimumCharacters="5" />
-                                        </Binding.ValidationRules>
-                                    </Binding>
-                                </TextBox.Text>
-                            </TextBox>
-                            <TextBox x:Name="phoneTextBox" materialDesign:HintAssist.Hint="НОМЕР ТЕЛЕФОНА (+375XXXXXXXXX)" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Имя:" FontSize="16" FontFamily="Roboto"/>
+                                <TextBlock Text="{Binding ClientName}" FontSize="16" FontFamily="Roboto" Margin="5 0"/>
+                            </StackPanel>
+                            <TextBox x:Name="phoneTextBox" materialDesign:HintAssist.Hint="НОМЕР ТЕЛЕФОНА (+375XXXXXXXXX)" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                                 <TextBox.Text>
                                     <Binding Path="Phone" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
@@ -110,7 +102,7 @@
                                 Value="35" 
                                 Margin="20 20 20 10"
                                 IsIndeterminate="{Binding IsVisibleProgressBar}" />
-                            <Button Command="{Binding ReserveCommand}" Height="30" Width="150" Content="Забронировать" FontFamily="Roboto" FontSize="16" Foreground="#ffffff" Margin="0 30 0 0" HorizontalAlignment="Center"/>
+                            <Button Command="{Binding ReserveCommand}" Height="30" Width="150" Content="Забронировать" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" Margin="0 30 0 0" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Grid>
                 </Grid>

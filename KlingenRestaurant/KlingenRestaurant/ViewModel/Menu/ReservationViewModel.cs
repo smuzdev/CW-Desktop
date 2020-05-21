@@ -16,7 +16,9 @@ namespace KlingenRestaurant
 {
     public class ReservationViewModel : ViewModelBase
     {
+        #region Private members
         private RestaurantContext context = new RestaurantContext();
+        private User user;
         private string clientName;
         private string phone;
         private string reservationTime;
@@ -28,6 +30,9 @@ namespace KlingenRestaurant
         private bool isOpenDialog;
         private string message;
 
+        #endregion
+
+        #region Public members
         public string ClientName
         {
             get
@@ -215,7 +220,9 @@ namespace KlingenRestaurant
                 RaisePropertyChanged();
             }
         }
+        #endregion
 
+        #region Commands
         private RelayCommand closeDialodCommand;
         public RelayCommand CloseDialodCommand
         {
@@ -253,6 +260,7 @@ namespace KlingenRestaurant
                                 {
                                     TableId = SelectedTable.TableId,
                                     UserId = user.UserId,
+                                    ClientName = user.Name,
                                     Phone = Phone,
                                     ReservationDate = dateTimeReservation,
                                     ReservationDateEnd = dateTimeReservation.AddHours(2),
@@ -262,36 +270,31 @@ namespace KlingenRestaurant
                                 };
                                 context.Reservations.Add(reservation);
                                 context.SaveChanges();
+                                Phone = Wishes = String.Empty;
+                                SelectedTable = null;
                                 IsVisibleProgressBar = false;
                             }
                             else
                             {
                                 IsVisibleProgressBar = false;
-                                Message = "Укажите столик.";
+                                Message = "Укажите столик!";
                                 IsOpenDialog = true;
                             }
                         }
                     );
                     },
                     (x1) =>
-                    ClientName?.Length > 0 && Phone?.Length > 0));
+                    Phone?.Length > 0));
             }
         }
+        #endregion
 
-        public ReservationViewModel()
-        {
-            ReservationDate = DateTime.Now;
-            ReservationTime = DateTime.Now.ToShortTimeString();
-            NTable = GetFreeTables();
-        }
 
         #region Helper
-
         public ObservableCollection<Table> GetFreeTables()
         {
             DateTime chosenTime = ChosenDate();
             ObservableCollection<Table> tables = new ObservableCollection<Table>(context.Tables.ToList());
-
 
             ObservableCollection<Reservation> reservations =
                                     new ObservableCollection<Reservation>(
@@ -316,6 +319,17 @@ namespace KlingenRestaurant
             dateTimeReservation = dateTimeReservation.AddMinutes(time.Minute);
             dateTimeReservation = dateTimeReservation.AddSeconds(time.Second);
             return dateTimeReservation;
+        }
+
+        public ReservationViewModel()
+        {
+            user = SimpleIoc.Default.GetInstance<MainViewModel>().User;
+            ClientName = user.Name;
+            Phone = Wishes = String.Empty;
+            SelectedTable = null;
+            ReservationDate = DateTime.Now;
+            ReservationTime = DateTime.Now.ToShortTimeString();
+            NTable = GetFreeTables();
         }
 
         #endregion
