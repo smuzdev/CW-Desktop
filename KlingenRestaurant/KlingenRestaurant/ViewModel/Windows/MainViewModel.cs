@@ -11,6 +11,8 @@ namespace KlingenRestaurant
     public class MainViewModel : ViewModelBase
     { 
         private User user;
+        private bool isAdmin;
+        private bool isCook;
         private bool isOpenDialog;
         private IFrameNavigationService _navigationService;
 
@@ -44,6 +46,40 @@ namespace KlingenRestaurant
                     return;
                 }
                 isOpenDialog = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsAdmin
+        {
+            get
+            {
+                return isAdmin;
+            }
+            set
+            {
+                if (isAdmin == value)
+                {
+                    return;
+                }
+                isAdmin = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public bool IsCook
+        {
+            get
+            {
+                return isCook;
+            }
+            set
+            {
+                if (isCook == value)
+                {
+                    return;
+                }
+                isCook = value;
                 RaisePropertyChanged();
             }
         }
@@ -142,6 +178,20 @@ namespace KlingenRestaurant
                            () =>
                            {
                                _navigationService.NavigateTo("Admin");
+                           }));
+            }
+        }
+
+        private RelayCommand _cookCommand;
+        public RelayCommand CookCommand
+        {
+            get
+            {
+                return _cookCommand
+                       ?? (_cookCommand = new RelayCommand(
+                           () =>
+                           {
+                               _navigationService.NavigateTo("Cook");
                            }));
             }
         }

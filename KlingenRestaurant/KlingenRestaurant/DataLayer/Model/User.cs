@@ -17,6 +17,8 @@ namespace KlingenRestaurant
 
         public string Password { get; set; }
 
+        public UserRole Role { get; set; }
+
         public virtual List<Reservation> Reservations { get; set; }
 
         public User(){}
@@ -26,6 +28,7 @@ namespace KlingenRestaurant
             Name = name;
             Login = login;
             Password = password;
+            Role = UserRole.User;
         }
 
         public static string getHash(string password)

@@ -20,17 +20,17 @@
                 <StackPanel>
                     <StackPanel Height="120" Margin="10">
                         <TextBlock Text="Просмотр забронированных столиков" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
-                        <TextBlock  Text="Просмотр информации о забронированных столиках." FontSize="18" FontFamily="Roboto" Margin="15" />
+                        <TextBlock HorizontalAlignment="Center" Text="Просмотр информации о забронированных столиках." FontSize="18" FontFamily="Roboto" Margin="15" />
                         <Button Command="{Binding Path = ReservedTablesCommand }" Height="30" Width="120" Content="Просмотреть" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Height="120" Margin="10">
                         <TextBlock Text="Добавление новости" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
-                        <TextBlock  Text="Добавление новостной публикации на главную." FontSize="18" FontFamily="Roboto" Margin="15" />
+                        <TextBlock HorizontalAlignment="Center" Text="Добавление новостной публикации на главную." FontSize="18" FontFamily="Roboto" Margin="15" />
                         <Button Command="{Binding Path = AddNewsBlockCommand}" Height="30" Width="120" Content="Добавить" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Height="120" Margin="10">
                         <TextBlock Text="Добавление блюда" FontSize="22" FontFamily="Roboto" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#fc3912"/>
-                        <TextBlock  Text="Добавление нового блюда в раздел меню" FontSize="18" FontFamily="Roboto" Margin="15" />
+                        <TextBlock HorizontalAlignment="Center" Text="Добавление нового блюда в раздел меню" FontSize="18" FontFamily="Roboto" Margin="15" />
                         <Button Command="{Binding  Path = AddMenuDishCommand}" Height="30" Width="120" Content="Добавить" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>

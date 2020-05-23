@@ -66,3 +66,11 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\AddNewsBlockPage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\ReservedTablesPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Admin\ReservedTablesPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\CookPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\CookPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\OrderingProductPage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\OrderingProductPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\WarehousePage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\WarehousePage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\ProductUsagePage.g.cs
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\ProductUsagePage.baml

@@ -5,6 +5,8 @@ FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\MainWind
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Admin\AddMenuDishPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Admin\AddNewsBlockPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Admin\ReservedTablesPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Cook\OrderingProductPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\CookPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Login\LoginPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Login\RegistrationPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Style\Colors.xaml;;
@@ -16,4 +18,6 @@ FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Me
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\MenuPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\ReservationPage.xaml;;
 FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Menu\AdminPage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Cook\WarehousePage.xaml;;
+FD:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\Pages\Cook\ProductUsagePage.xaml;;
 

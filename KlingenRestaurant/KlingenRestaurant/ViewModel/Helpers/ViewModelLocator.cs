@@ -24,6 +24,7 @@ namespace KlingenRestaurant
             SimpleIoc.Default.Register<LoginWindowViewModel>();
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AdminViewModel>();
+            SimpleIoc.Default.Register<CookViewModel>();
             SetupNavigation();
         }
 
@@ -39,9 +40,13 @@ namespace KlingenRestaurant
             navigationService.Configure("Feedback", new Uri("../Pages/Menu/FeedbackPage.xaml", UriKind.Relative));
             navigationService.Configure("Account", new Uri("../Pages/Menu/AccountPage.xaml", UriKind.Relative));
             navigationService.Configure("Admin", new Uri("../Pages/Menu/AdminPage.xaml", UriKind.Relative));
+            navigationService.Configure("Cook", new Uri("../Pages/Menu/CookPage.xaml", UriKind.Relative));
             navigationService.Configure("AddMenuDish", new Uri("../Pages/Admin/AddMenuDishPage.xaml", UriKind.Relative));
             navigationService.Configure("AddNewsBlock", new Uri("../Pages/Admin/AddNewsBlockPage.xaml", UriKind.Relative));
             navigationService.Configure("ReservedTables", new Uri("../Pages/Admin/ReservedTablesPage.xaml", UriKind.Relative));
+            navigationService.Configure("OrderingProduct", new Uri("../Pages/Cook/OrderingProductPage.xaml", UriKind.Relative));
+            navigationService.Configure("ProductUsage", new Uri("../Pages/Cook/ProductUsagePage.xaml", UriKind.Relative));
+            navigationService.Configure("Warehouse", new Uri("../Pages/Cook/WarehousePage.xaml", UriKind.Relative));
             SimpleIoc.Default.Register<IFrameNavigationService>(() => navigationService);
         }
         public MainViewModel Main
@@ -65,6 +70,14 @@ namespace KlingenRestaurant
             get
             {
                 return ServiceLocator.Current.GetInstance<AdminViewModel>();
+            }
+        }
+
+        public CookViewModel CookViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CookViewModel>();
             }
         }
 

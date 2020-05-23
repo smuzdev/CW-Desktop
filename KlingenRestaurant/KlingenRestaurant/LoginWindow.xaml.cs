@@ -33,6 +33,8 @@ namespace KlingenRestaurant
                   {
                       var modalWindowVM = SimpleIoc.Default.GetInstance<MainViewModel>();
                       modalWindowVM.User = message.Argument;
+                      modalWindowVM.IsAdmin = modalWindowVM.User.Role == UserRole.Admin;
+                      modalWindowVM.IsCook = modalWindowVM.User.Role == UserRole.Cook;
                       var mainWindow = new MainWindow();
                       mainWindow.Show();
                       this.Close();

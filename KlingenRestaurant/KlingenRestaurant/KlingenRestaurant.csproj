@@ -90,7 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataLayer\Model\DishType.cs" />
+    <Compile Include="DataLayer\Enum\DishType.cs" />
+    <Compile Include="DataLayer\Enum\UserRole.cs" />
+    <Compile Include="DataLayer\Model\Product.cs" />
+    <Compile Include="DataLayer\Enum\ProductType.cs" />
     <Compile Include="DataLayer\Model\Reservation.cs" />
     <Compile Include="DataLayer\Model\Table.cs" />
     <Compile Include="Helpers\AttachedProperty\PasswordBoxAssistant.cs" />
@@ -122,6 +125,18 @@
     <Compile Include="Pages\Admin\ReservedTablesPage.xaml.cs">
       <DependentUpon>ReservedTablesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Cook\OrderingProductPage.xaml.cs">
+      <DependentUpon>OrderingProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cook\ProductUsagePage.xaml.cs">
+      <DependentUpon>ProductUsagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Cook\WarehousePage.xaml.cs">
+      <DependentUpon>WarehousePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Menu\CookPage.xaml.cs">
+      <DependentUpon>CookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Login\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -132,10 +147,14 @@
     <Compile Include="ViewModel\Admin\AddMenuDishViewModel.cs" />
     <Compile Include="ViewModel\Admin\AddNewsBlockViewModel.cs" />
     <Compile Include="ViewModel\Admin\ReservedTablesViewModel.cs" />
+    <Compile Include="ViewModel\Cook\OrderingProductViewModel.cs" />
+    <Compile Include="ViewModel\Cook\ProductUsageViewModel.cs" />
+    <Compile Include="ViewModel\Cook\WarehouseViewModel.cs" />
     <Compile Include="ViewModel\Login\LoginViewModel.cs" />
     <Compile Include="ViewModel\Login\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\Menu\AboutDishViewModel.cs" />
     <Compile Include="ViewModel\Menu\AccountViewModel.cs" />
+    <Compile Include="ViewModel\Menu\CookViewModel.cs" />
     <Compile Include="ViewModel\Menu\FeedbackViewModel.cs" />
     <Compile Include="ViewModel\Menu\HomeViewModel.cs" />
     <Compile Include="ViewModel\Windows\LoginWindowViewModel.cs" />
@@ -190,6 +209,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Admin\ReservedTablesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cook\OrderingProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cook\ProductUsagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Cook\WarehousePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Menu\CookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,6 +325,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\noPhoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ordering.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\orange.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

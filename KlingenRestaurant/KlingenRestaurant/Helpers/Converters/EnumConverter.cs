@@ -14,27 +14,53 @@ namespace KlingenRestaurant
             object parameter, CultureInfo culture)
         {
             if (value == null) return "";
-            switch ((DishType)value)
+            if (value is DishType)
             {
-                case DishType.Cold:
-                    {
-                        return "Холодное";
-                    }
+                switch ((DishType)value)
+                {
+                    case DishType.Cold:
+                        {
+                            return "Холодное";
+                        }
                     case DishType.Hot:
-                    {
-                        return "Горячее";
-                    }
+                        {
+                            return "Горячее";
+                        }
                     case DishType.Drinks:
-                    {
-                        return "Напитки";
-                    }
+                        {
+                            return "Напитки";
+                        }
+                }
             }
-            return "";
+            else
+            {
+                switch ((ProductType)value)
+                {
+                    case ProductType.FruitsVegetables:
+                        {
+                            return "Овощи и фрукты";
+                        }
+                    case ProductType.MeatFish:
+                        {
+                            return "Мясо и рыба";
+                        }
+                    case ProductType.MilkProducts:
+                        {
+                            return "Молочные продукты";
+                        }
+                    case ProductType.Drinks:
+                        {
+                            return "Напитки и другое";
+                        }
+                }
+            }
+                return "";
         }
 
         public object ConvertBack(object value, Type targetType,
             object parameter, CultureInfo culture)
         {
+
             if (value == null) return "";
             switch (value.ToString())
             {
@@ -49,6 +75,22 @@ namespace KlingenRestaurant
                 case "Напитки":
                     {
                         return DishType.Drinks;
+                    }
+                case "Овощи и фрукты":
+                    {
+                        return ProductType.FruitsVegetables;
+                    }
+                case "Мясо и рыба":
+                    {
+                        return ProductType.MeatFish;
+                    }
+                case "Молочные продукты":
+                    {
+                        return ProductType.MilkProducts;
+                    }
+                case "Напитки и другое":
+                    {
+                        return ProductType.Drinks;
                     }
             }
             return null;

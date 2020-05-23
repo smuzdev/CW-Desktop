@@ -10,7 +10,7 @@
         Title="Klingen Restaurant" Name="KlingenRestaurantWindow" Height="650" Width="940" MinHeight="650" MinWidth="850"
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Path=Main, Source={StaticResource Locator}}">
-    
+
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding HomeCommand}"/>
@@ -29,6 +29,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="200"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
+        <local:ParametrizedBooleanToVisibilityConverter x:Key="ParametrizedBooleanToVisibilityConverter"/>
     </Window.Resources>
     <Grid>
         <Grid>
@@ -108,14 +109,25 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
-                    <ListViewItem>
+                    <ListViewItem Visibility="{Binding IsAdmin,Converter={StaticResource ParametrizedBooleanToVisibilityConverter}}">
                         <StackPanel Margin="17" Orientation="Horizontal" Height="20">
-                            <materialDesign:PackIcon Kind="AddToPhotos" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
+                            <materialDesign:PackIcon Kind="AccountSupervisor" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
                             <TextBlock Text="Админ" Margin="20 0" FontSize="18" VerticalAlignment="Center" Foreground="White"/>
                         </StackPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding AdminCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListViewItem>
+                    <ListViewItem  Visibility="{Binding IsCook,Converter={StaticResource ParametrizedBooleanToVisibilityConverter}}">
+                        <StackPanel Margin="17" Orientation="Horizontal" Height="20">
+                            <materialDesign:PackIcon Kind="Kitchen" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="Повар" Margin="20 0" FontSize="18" VerticalAlignment="Center" Foreground="White"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding CookCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListViewItem>
