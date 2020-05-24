@@ -3,12 +3,72 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:KlingenRestaurant"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FeedbackPage">
 
     <Grid>
-        <TextBlock Text="{Binding FeedbackPageText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="Отзывы" Margin="10" FontFamily="AnastasiaScriptC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1" Margin="15" HorizontalAlignment="Center" Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Comment" VerticalAlignment="Center"
+                                                     Foreground="#fc3912" Width="35" Height="35"/>
+                <TextBox 
+                             Margin="10 0" 
+                             Width="450" FontSize="16"
+                                Text="{Binding Feedback,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             materialDesign:HintAssist.Hint="Напишите отзыв"
+                              IsEnabled="{Binding IsVisibleEditNameIcon}"/>
+                <Button Content="Отправить"
+                                    Command="{Binding SendFeedbackCommand}"/>
+            </StackPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
+              PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                <StackPanel >
+                    <ListBox HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Row="1" ItemsSource="{Binding Feedbacks}" ItemContainerStyle="{DynamicResource ListBoxItemStyleMenu}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0 5 0 0" Width="540" BorderThickness="3 3 3 3" BorderBrush="#fc3912" CornerRadius="10">
+                                    <Grid Background="#f5f5dc" Margin="2">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="2*"/>
+                                        </Grid.RowDefinitions>
+                                        <materialDesign:PackIcon Kind="Account" Width="40" Height="40" Margin="3"/>
+                                        <TextBlock Grid.Column="1"
+                                                   Margin="15 5"
+                                                   TextWrapping="Wrap"
+                                                   Text="{Binding User.Name, Mode=OneTime}"
+                                                   FontSize="16" FontFamily="Roboto" />
+                                        <TextBlock Grid.Row="1" Grid.Column="1" Margin="15 5" 
+                                                   TextWrapping="Wrap"
+                                                  
+                                                   Text="{Binding FeedbackMessage, Mode=OneTime}" FontSize="16" 
+                                                   FontFamily="Roboto" />
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
     </Grid>
 </Page>

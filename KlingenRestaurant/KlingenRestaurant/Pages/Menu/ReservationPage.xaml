@@ -49,7 +49,7 @@
                             <TextBlock Text="Заполните форму" FontSize="24" FontFamily="Roboto" FontWeight="Bold" Foreground="#fc3912" Margin="15"/>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Имя:" FontSize="16" FontFamily="Roboto"/>
-                                <TextBlock Text="{Binding ClientName}" FontSize="16" FontFamily="Roboto" Margin="5 0"/>
+                                <TextBlock Text="{Binding User.Name}" FontSize="16" FontFamily="Roboto" Margin="5 0"/>
                             </StackPanel>
                             <TextBox x:Name="phoneTextBox" materialDesign:HintAssist.Hint="НОМЕР ТЕЛЕФОНА (+375XXXXXXXXX)" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                                 <TextBox.Text>

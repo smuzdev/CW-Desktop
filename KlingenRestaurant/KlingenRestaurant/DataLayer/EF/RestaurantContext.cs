@@ -27,7 +27,7 @@ namespace KlingenRestaurant
         public DbSet<Reservation> Reservations { get; set; } 
         public DbSet<Table> Tables { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<Feedback> Feedbacks { get; set; }
 
     }
 }

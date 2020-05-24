@@ -92,6 +92,7 @@
     </ApplicationDefinition>
     <Compile Include="DataLayer\Enum\DishType.cs" />
     <Compile Include="DataLayer\Enum\UserRole.cs" />
+    <Compile Include="DataLayer\Model\Feedback.cs" />
     <Compile Include="DataLayer\Model\Product.cs" />
     <Compile Include="DataLayer\Enum\ProductType.cs" />
     <Compile Include="DataLayer\Model\Reservation.cs" />
