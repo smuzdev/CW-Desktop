@@ -16,7 +16,7 @@
         <materialDesign:DialogHost.DialogContent>
             <Border Height="Auto" Width="Auto">
                 <StackPanel Margin="16">
-                    <TextBlock Text="{Binding Message,FallbackValue=The login is already exist}"/>
+                    <TextBlock Text="{Binding Message}"/>
                     <Button Margin="0 10 0 0" Style="{StaticResource MaterialDesignFlatAccentButton}"
                                 Content="Закрыть" Foreground="#fc3912" Width="90" Height="30" Command="{Binding CloseDialodCommand}"/>
                 </StackPanel>

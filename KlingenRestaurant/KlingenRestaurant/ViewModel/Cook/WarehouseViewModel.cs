@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +16,12 @@ namespace KlingenRestaurant
         private RestaurantContext context = new RestaurantContext();
         private ObservableCollection<Product> products;
         private Product selectedProduct;
+        private int wasteCount;
+        private int addCount;
+        private bool isVisibleProgressBar;
+        private bool isOpenDialog;
+        private string message;
+        
 
         #endregion
 
@@ -39,6 +46,62 @@ namespace KlingenRestaurant
             }
         }
 
+        public bool IsVisibleProgressBar
+        {
+            get
+            {
+                return isVisibleProgressBar;
+            }
+            set
+            {
+                if (isVisibleProgressBar == value)
+                {
+                    return;
+                }
+                isVisibleProgressBar = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Is Open Dialog 
+        /// </summary>
+        public bool IsOpenDialog
+        {
+            get
+            {
+                return isOpenDialog;
+            }
+            set
+            {
+                if (isOpenDialog == value)
+                {
+                    return;
+                }
+                isOpenDialog = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Message for the dialog  
+        /// </summary>
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                if (message == value)
+                {
+                    return;
+                }
+                message = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
         public Product SelectedProduct
         {
             get
@@ -54,6 +117,43 @@ namespace KlingenRestaurant
                 }
 
                 selectedProduct = value;
+                RaisePropertyChanged();
+            }
+        }
+         public int WasteCount
+        {
+            get
+            {
+                return wasteCount;
+
+            }
+            set
+            {
+                if (wasteCount == value)
+                {
+                    return;
+                }
+
+                wasteCount = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public int AddCount
+        {
+            get
+            {
+                return addCount;
+
+            }
+            set
+            {
+                if (addCount == value)
+                {
+                    return;
+                }
+
+                addCount = value;
                 RaisePropertyChanged();
             }
         }
@@ -83,14 +183,77 @@ namespace KlingenRestaurant
                     x => selectedProduct != null));
             }
         }
+           private RelayCommandParametr wasteProductCommand;
+        public RelayCommandParametr WasteProductCommand
+        {
+            get
+            {
+                return wasteProductCommand
+                    ?? (wasteProductCommand = new RelayCommandParametr(
+                    (o) =>
+                    {
+                        if (WasteCount <= SelectedProduct.ProductCount)
+                        {
+                            SelectedProduct.ProductCount -= WasteCount;
+                            context.Entry(SelectedProduct).State = System.Data.Entity.EntityState.Modified;
+                            context.SaveChanges();
+                            WasteCount = 0;
+                            Products = new ObservableCollection<Product>(context.Products.ToList());
+                        }
+                        else
+                        {
+                            IsVisibleProgressBar = false;
+                            Message = "Задано значение больше, чем есть на складе!";
+                            IsOpenDialog = true;
+                        }
+                        
+                    },
+                    x => selectedProduct != null));
+            }
+        }
+
+        private RelayCommandParametr addProductCommand;
+        public RelayCommandParametr AddProductCommand
+        {
+            get
+            {
+                return addProductCommand
+                    ?? (addProductCommand = new RelayCommandParametr(
+                    (o) =>
+                    {
+                            SelectedProduct.ProductCount += AddCount;
+                            context.Entry(SelectedProduct).State = System.Data.Entity.EntityState.Modified;
+                            context.SaveChanges();
+                            AddCount = 0;
+                            Products = new ObservableCollection<Product>(context.Products.ToList());
+                    },
+                    x => selectedProduct != null));
+            }
+        }
+
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
+            }
+        }
+
         #endregion
+
 
         #region ctor
 
         public WarehouseViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
-            Products = new ObservableCollection<Product>(context.Products.AsNoTracking().ToList());
+            Products = new ObservableCollection<Product>(context.Products.ToList());
         }
 
         #endregion

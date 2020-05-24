@@ -109,6 +109,7 @@ namespace KlingenRestaurant
                     ?? (orderProductCommand = new RelayCommandParametr(
                     (obj) =>
                     {
+
                         if (!String.IsNullOrWhiteSpace(ProductName) && ProductCount != 0)
                         {
                             IsVisibleProgressBar = true;

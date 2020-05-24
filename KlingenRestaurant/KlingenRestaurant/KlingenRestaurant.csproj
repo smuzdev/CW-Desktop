@@ -128,9 +128,6 @@
     <Compile Include="Pages\Cook\OrderingProductPage.xaml.cs">
       <DependentUpon>OrderingProductPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Cook\ProductUsagePage.xaml.cs">
-      <DependentUpon>ProductUsagePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Cook\WarehousePage.xaml.cs">
       <DependentUpon>WarehousePage.xaml</DependentUpon>
     </Compile>
@@ -148,7 +145,6 @@
     <Compile Include="ViewModel\Admin\AddNewsBlockViewModel.cs" />
     <Compile Include="ViewModel\Admin\ReservedTablesViewModel.cs" />
     <Compile Include="ViewModel\Cook\OrderingProductViewModel.cs" />
-    <Compile Include="ViewModel\Cook\ProductUsageViewModel.cs" />
     <Compile Include="ViewModel\Cook\WarehouseViewModel.cs" />
     <Compile Include="ViewModel\Login\LoginViewModel.cs" />
     <Compile Include="ViewModel\Login\RegistrationViewModel.cs" />
@@ -213,12 +209,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Cook\OrderingProductPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Cook\ProductUsagePage.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Cook\WarehousePage.xaml">
       <SubType>Designer</SubType>

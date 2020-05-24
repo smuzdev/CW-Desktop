@@ -18,19 +18,14 @@
             <Grid Grid.Row="1" Margin="0 30 0 0">
                 <StackPanel>
                     <StackPanel Height="120" Margin="10">
-                        <TextBlock Text="Использование продуктов" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Использование имеющихся продуктов" FontSize="18" FontFamily="Roboto" Margin="15" />
-                        <Button Command="{Binding Path = ProductUsageCommand}" Height="30" Width="130" Content="Заказать" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                    <StackPanel Height="120" Margin="10">
-                        <TextBlock Text="Заказ продуктов" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Заказ необходимых продуктов" FontSize="18" FontFamily="Roboto" Margin="15" />
-                        <Button Command="{Binding Path = OrderingProductCommand}" Height="30" Width="130" Content="Заказать" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Заказ новых продуктов" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Заказ новых продуктов на склад" FontSize="18" FontFamily="Roboto" Margin="15" />
+                        <Button Command="{Binding Path = OrderingProductCommand}" Height="30" Width="120" Content="Заказать" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Height="120" Margin="10">
                         <TextBlock Text="Склад" FontSize="22" FontFamily="Roboto" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#fc3912"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Просмотр продуктов на складе." FontSize="18" FontFamily="Roboto" Margin="15" />
-                        <Button Command="{Binding  Path = WarehouseCommand}" Height="30" Width="130" Content="Просмотреть" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Просмотр, использование и заказ имеющихся продуктов на складе" FontSize="18" FontFamily="Roboto" Margin="15" />
+                        <Button Command="{Binding  Path = WarehouseCommand}" Height="30" Width="120" Content="Перейти" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>

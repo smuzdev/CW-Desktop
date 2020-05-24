@@ -13,33 +13,100 @@
     <Page.Resources>
         <local:EnumConverter x:Key="EnumConverter"/>
     </Page.Resources>
-    <Grid Background="#f0f8ff">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Grid.Row="0" Text="Продукты на складе" HorizontalAlignment="Center" Margin="10" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
-        </Grid>
-        <Grid Grid.Row="1" >
+    <materialDesign:DialogHost 
+        IsOpen="{Binding IsOpenDialog,FallbackValue=False}">
+        <materialDesign:DialogHost.DialogContent>
+            <Border Height="Auto" Width="Auto">
+                <StackPanel Margin="16">
+                    <TextBlock Text="{Binding Message}"/>
+                    <Button Margin="0 10 0 0" Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                Content="Закрыть" Foreground="#fc3912" Width="90" Height="30" Command="{Binding CloseDialodCommand}"/>
+                </StackPanel>
+            </Border>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid Background="#f0f8ff">
             <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
-            
-            <DataGrid HorizontalAlignment="Center" MaxHeight="500" SelectedItem="{Binding SelectedProduct}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="15 0" AutoGenerateColumns="False" AreRowDetailsFrozen="True"   CanUserAddRows="False" Background="Transparent" CanUserDeleteRows="False" IsReadOnly="True" ItemsSource="{Binding Products}" Grid.Row="0" Height="Auto" Width="auto">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding ProductName}" Header="Наименование" Width="150" FontFamily="Roboto" FontSize="16"/>
-                    <DataGridTextColumn Binding="{Binding ProductType, Converter={StaticResource EnumConverter}}" Header="Тип продукта" Width="200" FontFamily="Roboto" FontSize="16"/>
-                    <DataGridTextColumn Binding="{Binding ProductCount}" Header="Количество" Width="150" FontFamily="Roboto" FontSize="16"/>
-                </DataGrid.Columns>
-            </DataGrid >
-            <Button Height="30"
+            <Grid Grid.Row="0">
+                <TextBlock Grid.Row="0" Text="Продукты на складе" HorizontalAlignment="Center" Margin="10" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
+            </Grid>
+            <Grid Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <DataGrid HorizontalAlignment="Center" MaxHeight="500"
+                      SelectedItem="{Binding SelectedProduct}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="15 0" AutoGenerateColumns="False" AreRowDetailsFrozen="True"   CanUserAddRows="False" Background="Transparent" CanUserDeleteRows="False" IsReadOnly="True" ItemsSource="{Binding Products}" Grid.Row="0" Height="Auto" Width="auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ProductName}" Header="Наименование" Width="150" FontFamily="Roboto" FontSize="16"/>
+                        <DataGridTextColumn Binding="{Binding ProductType, Converter={StaticResource EnumConverter}}" Header="Тип продукта" Width="200" FontFamily="Roboto" FontSize="16"/>
+                        <DataGridTextColumn Binding="{Binding ProductCount}" Header="Количество" Width="150" FontFamily="Roboto" FontSize="16"/>
+                    </DataGrid.Columns>
+                </DataGrid >
+                <Button Height="30"
                     Grid.Row="1"
                     Width="120" Padding="1" 
                     Content="Удалить"
                     Command="{Binding DeleteProductCommand}"
                     Margin="0 20 0 0"/>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20" HorizontalAlignment="Center">
+                    <TextBlock Text="Ипользовать продукт (количество)" HorizontalAlignment="Center" FontSize="18" FontFamily="Roboto" Margin="0 20 0 0"/>
+                    <TextBox 
+                                HorizontalAlignment="Stretch"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                Height="35"
+                                Margin="20 10 20 10"
+                                Width="100"
+                                FontSize="18">
+                        <TextBox.Text>
+                            <Binding Path="WasteCount" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:NotEmptyValidationRule  />
+                                    <local:MinimumCharacterRule MinimumCharacters="1" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    
+                    <Button Height="30"
+                    Width="120" Padding="1" 
+                    Content="Потратить"
+                    Command="{Binding WasteProductCommand}"
+                    />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Заказать продукт (количество)" HorizontalAlignment="Center" FontSize="18" FontFamily="Roboto" Margin="0 20 0 0"/>
+                    <TextBox 
+                                HorizontalAlignment="Stretch"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                Height="35"
+                                Margin="20 10 20 10"
+                                Width="100"
+                                FontSize="18">
+                        <TextBox.Text>
+                            <Binding Path="AddCount" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:NotEmptyValidationRule  />
+                                    <local:MinimumCharacterRule MinimumCharacters="1" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+
+                    <Button Height="30"
+                    Width="120" Padding="1" 
+                    Content="Заказать"
+                    Command="{Binding AddProductCommand}"/>
+                </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
+    </materialDesign:DialogHost>
 </Page>

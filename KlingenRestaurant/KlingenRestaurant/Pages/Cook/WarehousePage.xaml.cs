@@ -26,5 +26,7 @@ namespace KlingenRestaurant
             DataContext = new WarehouseViewModel(SimpleIoc.Default.GetInstance<IFrameNavigationService>());
             InitializeComponent();
         }
+
+        
     }
 }

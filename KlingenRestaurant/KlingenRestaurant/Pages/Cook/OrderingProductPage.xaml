@@ -19,72 +19,9 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-            <!--<TextBlock Grid.Row="0" Text="Использование продуктов" Margin="10" FontFamily="AnastasiaScriptC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0">
-                <StackPanel>
-                    <TextBlock HorizontalAlignment="Center" Text="Наименование" FontSize="18" FontFamily="Roboto"/>
-                    <TextBox 
-                         HorizontalAlignment="Stretch"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="35"
-                         Margin="20 10 20 10"
-                         MaxHeight="160"
-                         MaxWidth="400"
-                         materialDesign:HintAssist.Hint="Наименование*"
-                         materialDesign:HintAssist.Foreground="#696969"
-                         FontSize="18">
-                        <TextBox.Text>
-                            <Binding Path="ProductName" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    <local:NotEmptyValidationRule  />
-                                    <local:MinimumCharacterRule MinimumCharacters="5" />
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
-                </StackPanel>
-                <StackPanel>
-                        <TextBlock HorizontalAlignment="Center" Text="Количество (кг.)" FontSize="18" FontFamily="Roboto"/>
-                        <TextBox 
-                         HorizontalAlignment="Stretch"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         Height="35"
-                         Margin="20 10 20 10"
-                         MaxHeight="160"
-                         MaxWidth="400"
-                         FontSize="18">
-                            <TextBox.Text>
-                                <Binding Path="ProductCount" UpdateSourceTrigger="PropertyChanged">
-                                    <Binding.ValidationRules>
-                                        <local:NotEmptyValidationRule  />
-                                        <local:MinimumCharacterRule MinimumCharacters="2" />
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </StackPanel>
-                    <ProgressBar 
-                                Visibility="{Binding IsVisibleProgressBar,
-                                    Converter={StaticResource ParametrizedBooleanToVisibilityConverter},
-                                    FallbackValue=Collapsed}"
-                                Style="{StaticResource MaterialDesignCircularProgressBar}"
-                                Value="35" 
-                                Margin="20 20 20 10"
-                                IsIndeterminate="{Binding IsVisibleProgressBar}" />
-                    <Button       
-                         Visibility="{Binding IsVisibleProgressBar,
-                                    Converter={StaticResource ParametrizedBooleanToVisibilityConverter},
-                                    ConverterParameter=False}"
-                         Foreground="#ffffff"
-                         FontSize="14"
-                         Margin="20 20 0 0"
-                         Width="130" Content="Использовать" 
-                         Command="{Binding OrderProductCommand}"/>
-                </StackPanel>-->
+           
                 <TextBlock Grid.Row="0" Text="Заказ продуктов" Margin="0 20 0 0" FontFamily="AnastasiaScriptC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0">
+            <StackPanel Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 30 0 0">
                 <StackPanel>
                     <TextBlock HorizontalAlignment="Center" Text="Наименование" FontSize="18" FontFamily="Roboto"/>
                     <TextBox 
@@ -124,7 +61,7 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock HorizontalAlignment="Center" Text="Количество (кг.)" FontSize="18" FontFamily="Roboto"/>
+                    <TextBlock HorizontalAlignment="Center" Text="Количество" FontSize="18" FontFamily="Roboto"/>
                     <TextBox 
                          HorizontalAlignment="Stretch"
                          AcceptsReturn="True"
