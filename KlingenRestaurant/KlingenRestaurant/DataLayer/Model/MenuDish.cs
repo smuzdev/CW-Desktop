@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
+﻿using System.Collections.Generic;
 
 namespace KlingenRestaurant
 {
-   public class MenuDish
+    public class MenuDish
     {
         public int MenuDishId { get; set; }
         public string MenuDishName { get; private set; }
@@ -18,6 +11,8 @@ namespace KlingenRestaurant
         public double DishCostValue { get; private set; }
         public string DishServingWeight { get; private set; }
         public DishType DishType { get; private set; }
+
+        public virtual List<FavoriteDish> FavoriteDishes { get; set; }
 
         public MenuDish()
         {

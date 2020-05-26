@@ -19,12 +19,26 @@ namespace KlingenRestaurant
     /// <summary>
     /// Логика взаимодействия для AccountPage.xaml
     /// </summary>
-    public partial class AccountPage : Page
+    public partial class FavouritesPage : Page
     {
-        public AccountPage()
+        public FavouritesPage()
         {
-            DataContext = new AccountViewModel(SimpleIoc.Default.GetInstance<IFrameNavigationService>());
+            DataContext = new FavouritesViewModel(SimpleIoc.Default.GetInstance<IFrameNavigationService>());
             InitializeComponent();
+        }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer scrollViewer = (ScrollViewer)sender;
+            if (e.Delta < 0)
+            {
+                scrollViewer.LineDown();
+            }
+            else
+            {
+                scrollViewer.LineUp();
+            }
+            e.Handled = true;
         }
     }
 }

@@ -9,52 +9,64 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ReservedTablesPage">
 
-    <Grid Background="#f0f8ff">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Grid.Row="0" Text="Забронированные столики" HorizontalAlignment="Center" Margin="10" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
-        </Grid>
-        <Grid Grid.Row="1" >
+    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
+                                                 OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
+        <Grid Background="#f0f8ff">
             <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
-            <StackPanel Margin="5"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox Width="150" Height="50" 
-                                 Text="{Binding TableIdSearch}" Margin="15 0" materialDesign:HintAssist.IsFloating="True"
+            <Grid Grid.Row="0">
+                <TextBlock Grid.Row="0" Text="Забронированные столики" HorizontalAlignment="Center" Margin="10" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
+            </Grid>
+            <Grid Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Margin="5"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBox Width="150" Height="50" 
+                                 Margin="15 0" materialDesign:HintAssist.IsFloating="True"
                                  materialDesign:HintAssist.Hint="Номер столика" 
                                  materialDesign:HintAssist.HintOpacity="0.9" Style="{StaticResource MaterialDesignTextBox}"
-                                 FontFamily="Roboto" FontSize="16"/>
-                <DatePicker Width="150"  Height="50" 
+                                 FontFamily="Roboto" FontSize="16">
+                        <TextBox.Text>
+                            <Binding Path="TableIdSearch" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:OnlyNumbersRule/>
+                                    <local:MaximumCharacterRule MaximumCharacters="2"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <DatePicker Width="150"  Height="50" 
                                  Text="{Binding DateSearch,Mode=TwoWay}" Margin="15 0 15 0"  materialDesign:HintAssist.IsFloating="True"
                                  materialDesign:HintAssist.Hint="Дата"
                                  materialDesign:HintAssist.HintOpacity="0.9" 
                                  FontFamily="Roboto" FontSize="16" />
-                
-                <Button Height="30"
+
+                    <Button Height="30"
                     Width="30" Padding="1" 
                     Command="{Binding SearchCommand}"
                     Margin="5 0">
-                    <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{StaticResource ForegroundColorLight}"/>
-                </Button>
-                <Button Height="30"
+                        <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{StaticResource ForegroundColorLight}"/>
+                    </Button>
+                    <Button Height="30"
                     Width="120" Padding="1" 
                     Content="Удалить"
                     Command="{Binding DeleteReservationCommand}"
                     Margin="5 0"/>
 
-            </StackPanel>
-            <DataGrid SelectedItem="{Binding SelectedReservation}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="15 0" AutoGenerateColumns="False" AreRowDetailsFrozen="True"   CanUserAddRows="False" Background="Transparent" CanUserDeleteRows="False" IsReadOnly="True" ItemsSource="{Binding Reservations}" Grid.Row="1" Height="Auto" Width="Auto">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding TableId}" Header="Номер столика" Width="150" FontFamily="Roboto" FontSize="16"/>
-                    <DataGridTextColumn Binding="{Binding ReservationDate}" Header="Дата и время" Width="200" FontFamily="Roboto" FontSize="16"/>
-                    <DataGridTextColumn Binding="{Binding ClientName}" Header="Имя клиента" Width="150" FontFamily="Roboto" FontSize="16"/>
-                    <DataGridTextColumn Binding="{Binding Phone}" Header="Номер телефона" Width="150" FontFamily="Roboto" FontSize="16"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                </StackPanel>
+                <DataGrid SelectedItem="{Binding SelectedReservation}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="15 0" AutoGenerateColumns="False" AreRowDetailsFrozen="True"   CanUserAddRows="False" Background="Transparent" CanUserDeleteRows="False" IsReadOnly="True" ItemsSource="{Binding Reservations}" Grid.Row="1" Height="Auto" Width="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding TableId}" Header="Номер столика" Width="150" FontFamily="Roboto" FontSize="16"/>
+                        <DataGridTextColumn Binding="{Binding ReservationDate}" Header="Дата и время" Width="200" FontFamily="Roboto" FontSize="16"/>
+                        <DataGridTextColumn Binding="{Binding ClientName}" Header="Имя клиента" Width="150" FontFamily="Roboto" FontSize="16"/>
+                        <DataGridTextColumn Binding="{Binding Phone}" Header="Номер телефона" Width="150" FontFamily="Roboto" FontSize="16"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Grid>
-    </Grid>
+    </materialDesign:TransitioningContent>
 </Page>

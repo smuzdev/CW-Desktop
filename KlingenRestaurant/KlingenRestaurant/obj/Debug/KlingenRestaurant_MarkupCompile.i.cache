@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\App.xaml
-192129222107
+19-433854826
 
-651430769075
+73-1651942155
 129-745434167
-LoginWindow.xaml;MainWindow.xaml;Pages\Admin\AddMenuDishPage.xaml;Pages\Admin\AddNewsBlockPage.xaml;Pages\Admin\ReservedTablesPage.xaml;Pages\Cook\OrderingProductPage.xaml;Pages\Cook\WarehousePage.xaml;Pages\Menu\CookPage.xaml;Pages\Login\LoginPage.xaml;Pages\Login\RegistrationPage.xaml;Style\Colors.xaml;Style\ListBox.xaml;Pages\Menu\AboutDishPage.xaml;Pages\Menu\AccountPage.xaml;Pages\Menu\FeedbackPage.xaml;Pages\Menu\HomePage.xaml;Pages\Menu\MenuPage.xaml;Pages\Menu\ReservationPage.xaml;Pages\Menu\AdminPage.xaml;
+LoginWindow.xaml;MainWindow.xaml;Pages\Admin\AddMenuDishPage.xaml;Pages\Admin\AddNewsBlockPage.xaml;Pages\Admin\ReservedTablesPage.xaml;Pages\Cook\OrderingProductPage.xaml;Pages\Cook\WarehousePage.xaml;Pages\Menu\CookPage.xaml;Pages\Login\LoginPage.xaml;Pages\Login\RegistrationPage.xaml;Style\Colors.xaml;Style\ListBox.xaml;Pages\Menu\AboutDishPage.xaml;Pages\Menu\FavouritesPage.xaml;Pages\Menu\FeedbackPage.xaml;Pages\Menu\HomePage.xaml;Pages\Menu\MenuPage.xaml;Pages\Menu\ReservationPage.xaml;Pages\Menu\AdminPage.xaml;
 
 True
 

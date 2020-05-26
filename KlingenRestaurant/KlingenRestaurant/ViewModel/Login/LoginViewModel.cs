@@ -2,18 +2,15 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Threading;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     public class LoginViewModel : ViewModelBase
     {
-        #region Private members
+        #region Private Fields
+
         private IFrameNavigationService _navigationService;
         private RestaurantContext context = new RestaurantContext();
         private string login;
@@ -27,7 +24,7 @@ namespace KlingenRestaurant
         #endregion
 
 
-        #region Public Members
+        #region Public Fields
 
         public string Login
         {

@@ -1,29 +1,28 @@
 ﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 
 namespace KlingenRestaurant
 {
     class AddNewsBlockViewModel : ViewModelBase
     {
-        #region Private members 
+        #region Private Fields 
         private IFrameNavigationService _navigationService;
         private RestaurantContext context = new RestaurantContext();
         private string newsBlockName;
         private string newsBlockDescription;
         private byte[] newsBlockImage;
         private bool isVisibleProgressBar;
+        private bool isOpenDialog;
+        private string message;
 
         #endregion
 
-        #region Public members
+        #region Public Fields
 
         public byte[] NewsBlockImage
         {
@@ -94,6 +93,42 @@ namespace KlingenRestaurant
                 RaisePropertyChanged();
             }
         }
+
+        public bool IsOpenDialog
+        {
+            get
+            {
+                return isOpenDialog;
+            }
+            set
+            {
+                if (isOpenDialog == value)
+                {
+                    return;
+                }
+                isOpenDialog = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Message for the dialog  
+        /// </summary>
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                if (message == value)
+                {
+                    return;
+                }
+                message = value;
+                RaisePropertyChanged();
+            }
+        }
         #endregion
 
         #region Commands
@@ -134,7 +169,8 @@ namespace KlingenRestaurant
                                 context.News.Add(news);
                                 context.SaveChanges();
                                 IsVisibleProgressBar = false;
-
+                                Message = "Новость добавлена на главную страницу!";
+                                IsOpenDialog = true;
                                 NewsBlockName = NewsBlockDescription = string.Empty;
                                 Image img = System.Drawing.Image.FromFile(new Uri("../../Assets/noPhoto.png", UriKind.RelativeOrAbsolute).OriginalString);
                                 NewsBlockImage = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
@@ -142,6 +178,20 @@ namespace KlingenRestaurant
                         }
                     },
                     (x) => !String.IsNullOrWhiteSpace(newsBlockName)));
+            }
+        }
+
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
             }
         }
         #endregion

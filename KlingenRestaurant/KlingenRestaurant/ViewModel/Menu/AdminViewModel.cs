@@ -1,16 +1,15 @@
 ﻿using GalaSoft.MvvmLight;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     public class AdminViewModel : ViewModelBase
     {
-        private IFrameNavigationService _navigationService;
 
+        #region Private Fields
+        private IFrameNavigationService _navigationService;
+        #endregion
+
+        #region Commands
         private RelayCommandParametr _addMenuDishCommand;
         public RelayCommandParametr AddMenuDishCommand
         {
@@ -55,11 +54,14 @@ namespace KlingenRestaurant
                            }));
             }
         }
+        #endregion
 
+        #region ctor
         public AdminViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
         }
+        #endregion]
     }
 }
 

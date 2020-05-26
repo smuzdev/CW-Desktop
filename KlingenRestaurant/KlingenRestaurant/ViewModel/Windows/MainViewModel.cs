@@ -1,20 +1,19 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     public class MainViewModel : ViewModelBase
-    { 
+    {
+        #region Private Fields
         private User user;
         private bool isAdmin;
         private bool isCook;
         private bool isOpenDialog;
         private IFrameNavigationService _navigationService;
+        #endregion
+
+        #region Public Fields
 
         public User User
         {
@@ -84,6 +83,10 @@ namespace KlingenRestaurant
             }
         }
 
+        public string Message { get; internal set; }
+        #endregion
+
+        #region Commands
         private RelayCommand _loginpageCommand;
         public RelayCommand LoginPageCommand
         {
@@ -154,16 +157,16 @@ namespace KlingenRestaurant
             }
         }
 
-        private RelayCommand _accountCommand;
-        public RelayCommand AccountCommand
+        private RelayCommand _favouritesCommand;
+        public RelayCommand FavouritesCommand
         {
             get
             {
-                return _accountCommand
-                       ?? (_accountCommand = new RelayCommand(
+                return _favouritesCommand
+                       ?? (_favouritesCommand = new RelayCommand(
                            () =>
                            {
-                               _navigationService.NavigateTo("Account");
+                               _navigationService.NavigateTo("Favourites");
                            }));
             }
         }
@@ -210,11 +213,14 @@ namespace KlingenRestaurant
             }
         }
 
-        public string Message { get; internal set; }
+        #endregion
+
+        #region ctor
 
         public MainViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
         }
+        #endregion
     }
 }

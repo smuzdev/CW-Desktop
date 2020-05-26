@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
@@ -11,9 +7,15 @@ namespace KlingenRestaurant
 {
     public class HomeViewModel : ViewModelBase
     {
+        #region Private Fields
+
         private IFrameNavigationService _navigationService;
         private ObservableCollection<NewsBlock> newsBlocks = new ObservableCollection<NewsBlock>();
         private RestaurantContext context = new RestaurantContext();
+
+        #endregion
+
+        #region Public Fields
 
         public ObservableCollection<NewsBlock> NewsBlocks
         {
@@ -28,6 +30,10 @@ namespace KlingenRestaurant
                 RaisePropertyChanged();
             }
         }
+
+        #endregion
+
+        #region Commands
 
         private RelayCommand _loginpageCommand;
         public RelayCommand LoginPageCommand
@@ -57,9 +63,14 @@ namespace KlingenRestaurant
                     }));
             }
         }
+
+        #endregion
+
+        #region ctor
         public HomeViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
         }
+        #endregion
     }
 }

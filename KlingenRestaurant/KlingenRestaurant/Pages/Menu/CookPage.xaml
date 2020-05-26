@@ -4,31 +4,35 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:KlingenRestaurant"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CookPage" DataContext="{Binding Path = CookViewModel, Source={StaticResource Locator}}">
 
-    <Grid>
+    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
+                                                 OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Страница повара" Margin="10" FontFamily="AnastasiaScriptC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
-            <Grid Grid.Row="1" Margin="0 30 0 0">
-                <StackPanel>
-                    <StackPanel Height="120" Margin="10">
-                        <TextBlock Text="Заказ новых продуктов" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Заказ новых продуктов на склад" FontSize="18" FontFamily="Roboto" Margin="15" />
-                        <Button Command="{Binding Path = OrderingProductCommand}" Height="30" Width="120" Content="Заказать" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="Страница повара" Margin="10" FontFamily="AnastasiaScriptC" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Foreground="#fc3912" FontWeight="Bold"/>
+                <Grid Grid.Row="1" Margin="0 30 0 0">
+                    <StackPanel>
+                        <StackPanel Height="120" Margin="10">
+                            <TextBlock Text="Заказ новых продуктов" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" FontFamily="Roboto" Foreground="#fc3912"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Заказ новых продуктов на склад" FontSize="18" FontFamily="Roboto" Margin="15" />
+                            <Button Command="{Binding Path = OrderingProductCommand}" Height="30" Width="120" Content="Заказать" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Height="120" Margin="10">
+                            <TextBlock Text="Склад" FontSize="22" FontFamily="Roboto" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#fc3912"/>
+                            <TextBlock HorizontalAlignment="Center" Text="Просмотр, использование и заказ имеющихся продуктов на складе" FontSize="18" FontFamily="Roboto" Margin="15" />
+                            <Button Command="{Binding  Path = WarehouseCommand}" Height="30" Width="120" Content="Перейти" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Height="120" Margin="10">
-                        <TextBlock Text="Склад" FontSize="22" FontFamily="Roboto" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#fc3912"/>
-                        <TextBlock HorizontalAlignment="Center" Text="Просмотр, использование и заказ имеющихся продуктов на складе" FontSize="18" FontFamily="Roboto" Margin="15" />
-                        <Button Command="{Binding  Path = WarehouseCommand}" Height="30" Width="120" Content="Перейти" FontFamily="Roboto" FontSize="14" Foreground="#ffffff" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </StackPanel>
+                </Grid>
             </Grid>
         </Grid>
-    </Grid>
+    </materialDesign:TransitioningContent>
 </Page>

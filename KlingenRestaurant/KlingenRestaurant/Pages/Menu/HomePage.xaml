@@ -28,18 +28,11 @@
                 <ListBox HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" x:Name="ListViewNewsBlock" ItemsSource="{Binding NewsBlocks}"  ItemContainerStyle="{DynamicResource ListBoxItemStyleMenu}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="500" Background="#FFF3F3F3" Margin="10">
+                            <Grid Height="500" Width="500" Background="#FFF3F3F3" Margin="10">
                                 <StackPanel HorizontalAlignment="Center">
-                                    <TextBlock Margin="10" FontFamily="Roboto" FontSize="28" Text="{Binding NewsBlockTitle}" Foreground="#fc3912"/>
+                                    <TextBlock Margin="10" FontFamily="Roboto" FontSize="26" Text="{Binding NewsBlockTitle}" Foreground="#fc3912"/>
                                     <Image Source="{Binding NewsBlockImage}" Width="500" Height="250" Stretch="UniformToFill" />
-                                    <TextBlock Text="{Binding NewsBlockDescription}" Height="100" FontSize="14" Margin="5" TextWrapping="Wrap" FontFamily="Roboto"/>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <Button Height="30" Width="150" Content="Читать" Command="{Binding ElementName= ListViewNewsBlock, Path= DataContext.ReadNewsCommand}"
-                                        CommandParameter="{Binding Path= SelectedItem , ElementName=ListViewNewsBlock}" FontFamily="Roboto" Margin="10"/>
-                                        <Button Height="30" Width="30" Padding="1">
-                                            <materialDesign:PackIcon Kind="Bookmark" Width="20" Height="20" VerticalAlignment="Center" Foreground="#ffffff" />
-                                        </Button>
-                                    </StackPanel>
+                                    <TextBlock Text="{Binding NewsBlockDescription}" FontSize="16" Margin="5" TextWrapping="Wrap" FontFamily="Roboto"/>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>

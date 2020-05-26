@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace KlingenRestaurant
 {
@@ -28,6 +23,7 @@ namespace KlingenRestaurant
         public DbSet<Table> Tables { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<FavoriteDish> FavoriteDishes { get; set; }
 
     }
 }

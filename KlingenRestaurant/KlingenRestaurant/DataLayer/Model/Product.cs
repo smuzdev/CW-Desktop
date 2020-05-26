@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KlingenRestaurant
+﻿namespace KlingenRestaurant
 {
     public class Product
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public double ProductCount { get; set; }
+        public int ProductCount { get; set; }
         public ProductType ProductType { get; set; }
 
         public Product() { }
 
-        public Product(string productName, ProductType productType, double productCount)
+        public Product(string productName, ProductType productType, int productCount)
         {
             ProductName = productName;
             ProductCount = productCount;

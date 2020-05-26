@@ -1,23 +1,23 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     class ReservedTablesViewModel : ViewModelBase
     {
         #region Private Fields
+
         private IFrameNavigationService _navigationService;
         private RestaurantContext context = new RestaurantContext();
         private ObservableCollection<Reservation> reservations;
         private Reservation selectedReservation;
         private string dateSearch;
         private string tableIdSearch;
+
         #endregion
+
         #region Public Fields
 
         public ObservableCollection<Reservation> Reservations
@@ -96,7 +96,6 @@ namespace KlingenRestaurant
             }
         }
         #endregion
-
 
         #region Commands
         private RelayCommandParametr searchCommand;

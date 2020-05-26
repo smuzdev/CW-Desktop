@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KlingenRestaurant
+﻿namespace KlingenRestaurant
 {
     public class CookViewModel
     {
+        #region Private Fields
         private IFrameNavigationService _navigationService;
+        #endregion
 
+        #region Commands
         private RelayCommandParametr _productUsageCommand;
         public RelayCommandParametr ProductUsageCommand
         {
@@ -54,11 +51,14 @@ namespace KlingenRestaurant
                            }));
             }
         }
+        #endregion
 
+        #region ctor
         public CookViewModel(IFrameNavigationService navigationService)
         {
             _navigationService = navigationService;
         }
+        #endregion
     }
 }
 

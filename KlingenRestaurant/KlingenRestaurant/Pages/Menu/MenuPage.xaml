@@ -16,6 +16,10 @@
             <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    <Page.Resources>
+        <local:ParametrizedBooleanToVisibilityConverter x:Key="ParametrizedBooleanToVisibilityConverter"/>
+        <local:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Page.Resources>
     <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
                                                  OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
         <Grid>
@@ -29,8 +33,9 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBox Width="500" Height="30" materialDesign:HintAssist.Hint="Поиск" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="20"/>
-                    <Button Height="30" Width="30" Padding="1" BorderBrush="#ff0033" Background="#fc3912" Margin="5 0">
+                    <TextBox Width="500" Height="30" materialDesign:HintAssist.Hint="Поиск" IsEnabled="{Binding IsVisibleProgressBar,Converter={StaticResource InverseBooleanConverter}}"  Text="{Binding SearchField}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="20"/>
+                    <Button Height="30" Width="30" IsEnabled="{Binding IsVisibleProgressBar,Converter={StaticResource InverseBooleanConverter}}"
+                    Command="{Binding SearchCommand}" Padding="1" BorderBrush="#ff0033" Background="#fc3912" Margin="5 0">
                         <materialDesign:PackIcon Kind="Magnify" Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="#ffffff"/>
                     </Button>
                 </StackPanel>

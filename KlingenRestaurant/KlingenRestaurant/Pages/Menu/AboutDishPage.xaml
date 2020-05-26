@@ -12,43 +12,66 @@
 
     <Page.Resources>
         <local:EnumConverter x:Key="EnumConverter"/>
+        <local:ParametrizedBooleanToVisibilityConverter x:Key="ParametrizedBooleanToVisibilityConverter"/>
     </Page.Resources>
-    <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
+    <materialDesign:DialogHost 
+        IsOpen="{Binding IsOpenDialog,FallbackValue=False}">
+        <materialDesign:DialogHost.DialogContent>
+            <Border Height="Auto" Width="Auto">
+                <StackPanel Margin="16">
+                    <TextBlock Text="{Binding Message}"/>
+                    <Button Margin="0 10 0 0" Style="{StaticResource MaterialDesignFlatAccentButton}"
+                                Content="Закрыть" Foreground="#fc3912" Width="90" Height="30" Command="{Binding CloseDialodCommand}"/>
+                </StackPanel>
+            </Border>
+        </materialDesign:DialogHost.DialogContent>
+        <materialDesign:TransitioningContent x:Name="TransitioningContentSlide" 
                                                  OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.8}">
 
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="Loaded">
-                <i:InvokeCommandAction Command="{Binding LoadedPageCommand}" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-        <ScrollViewer>
-            <StackPanel>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" VerticalAlignment="Top">
-                        <TextBlock Text="Просмотр блюда" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912"/>
-                    </Grid>
-                    <Grid Grid.Row="1" Margin="20" VerticalAlignment="Top">
-                        <StackPanel>
-                            <TextBlock Text="{Binding MenuDish.MenuDishName}" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="30"/>
-                            <TextBlock Text="{Binding MenuDish.DishType, Converter={StaticResource EnumConverter}}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic"/>
-                            <TextBlock Text="{Binding MenuDish.DishServingWeight}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic" Margin="0 0 0 15"/>
-                            <Image Source="{Binding MenuDish.MenuDishImage}" Width="500" Margin="20 0 0 0" HorizontalAlignment="Center"/>
-                            <StackPanel HorizontalAlignment="Left" x:Name="ListViewMenuDish">
-                                <TextBlock Text="Описание" FontFamily="Roboto" FontSize="24" Margin="15" Foreground="#fc3912"/>
-                                <TextBlock Text="{Binding MenuDish.MenuDishDescription}" Margin="15 0 0 0" TextWrapping="Wrap" FontFamily="Roboto" FontSize="16"/>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
-                                    <TextBlock Text="{Binding MenuDish.DishCostValue, StringFormat={}{0:C}}" FontFamily="Roboto" FontSize="28" Foreground="#f80000" Margin="15 0"/>
-                                    <Button Height="30" Width="120" Content="В избранное" FontFamily="Roboto" FontSize="14"/>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LoadedPageCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ScrollViewer>
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" VerticalAlignment="Top">
+                            <TextBlock Text="Просмотр блюда" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="AnastasiaScriptC" FontSize="50" Foreground="#fc3912"/>
+                        </Grid>
+                        <Grid Grid.Row="1" Margin="20" VerticalAlignment="Top">
+                            <StackPanel>
+                                <TextBlock Text="{Binding MenuDish.MenuDishName}" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="30"/>
+                                <TextBlock Text="{Binding MenuDish.DishType, Converter={StaticResource EnumConverter}}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic"/>
+                                <TextBlock Text="{Binding MenuDish.DishServingWeight}" HorizontalAlignment="Center" FontFamily="Roboto" Foreground="Gray" FontSize="20" FontStyle="Italic" Margin="0 0 0 15"/>
+                                <Image Source="{Binding MenuDish.MenuDishImage}" Width="500" Margin="20 0 0 0" HorizontalAlignment="Center"/>
+                                <StackPanel HorizontalAlignment="Left" x:Name="ListViewMenuDish">
+                                    <TextBlock Text="Описание" FontFamily="Roboto" FontSize="24" Margin="15" Foreground="#fc3912"/>
+                                    <TextBlock Text="{Binding MenuDish.MenuDishDescription}" Margin="15 0 0 0" TextWrapping="Wrap" FontFamily="Roboto" FontSize="16"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 15 0 0">
+                                        <TextBlock Text="{Binding MenuDish.DishCostValue, StringFormat={}{0:C}}" FontFamily="Roboto" FontSize="28" Foreground="#f80000" Margin="15 0"/>
+                                        <materialDesign:PackIcon 
+                            VerticalAlignment="Center"
+                             Visibility="{Binding IsFavorite,
+                                        Converter={StaticResource ParametrizedBooleanToVisibilityConverter},ConverterParameter=false}"
+                            Kind="Check" Width="25" Height="25" Margin="5 0"/>
+                                        <materialDesign:PackIcon
+                            VerticalAlignment="Center" 
+                             Visibility="{Binding IsFavorite,
+                                        Converter={StaticResource ParametrizedBooleanToVisibilityConverter}}"
+                            Kind="Close" Width="25" Height="25" Margin="5 0"/>
+                                        <Button Height="30" Width="120" Command="{Binding AddToFavoriteCommand}" Content="В избранное" FontFamily="Roboto" FontSize="14"/>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </StackPanel>
-        </ScrollViewer>
-    </materialDesign:TransitioningContent>
+                </StackPanel>
+            </ScrollViewer>
+        </materialDesign:TransitioningContent>
+    </materialDesign:DialogHost>
 </Page>

@@ -1,30 +1,27 @@
 ﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Command;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     class OrderingProductViewModel : ViewModelBase
     {
-        #region Private members 
+        #region Private Fields 
         private IFrameNavigationService _navigationService;
         private RestaurantContext context = new RestaurantContext();
         private string productName;
         private ProductType productType;
-        private double productCount;
+        private int productCount;
+        private bool isOpenDialog;
+        private string message;
 
         private bool isVisibleProgressBar;
 
         #endregion
 
-        #region Public members
+        #region Public Fields
 
-        
         public string ProductName
         {
             get
@@ -61,7 +58,7 @@ namespace KlingenRestaurant
             }
         }
 
-        public double ProductCount
+        public int ProductCount
         {
             get
             {
@@ -79,6 +76,41 @@ namespace KlingenRestaurant
             }
         }
 
+        public bool IsOpenDialog
+        {
+            get
+            {
+                return isOpenDialog;
+            }
+            set
+            {
+                if (isOpenDialog == value)
+                {
+                    return;
+                }
+                isOpenDialog = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Message for the dialog  
+        /// </summary>
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                if (message == value)
+                {
+                    return;
+                }
+                message = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public bool IsVisibleProgressBar
         {
@@ -122,13 +154,28 @@ namespace KlingenRestaurant
                                 context.Products.Add(products);
                                 context.SaveChanges();
                                 IsVisibleProgressBar = false;
-
+                                Message = "Продукт заказан!";
+                                IsOpenDialog = true;
                                 ProductName = string.Empty;
 
                             });
-                        }
+                        } 
                     },
                     (x) => !String.IsNullOrWhiteSpace(ProductName) && ProductType != 0));
+            }
+        }
+
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
             }
         }
         #endregion

@@ -1,18 +1,16 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     public class FeedbackViewModel : ViewModelBase
     {
+        #region Private Fields
+
         private IFrameNavigationService _navigationService;
         private RestaurantContext context = new RestaurantContext();
         private User user;
@@ -20,11 +18,10 @@ namespace KlingenRestaurant
         private ObservableCollection<Feedback> feedbacks;
         private string feedback;
 
-
+        #endregion
 
         #region Public members
-        
-        
+
         public ObservableCollection<Feedback> Feedbacks
         {
             get
@@ -106,23 +103,25 @@ namespace KlingenRestaurant
                         };
                         context.Feedbacks.Add(feedback);
                         context.SaveChanges();
+                        Feedback = String.Empty;
                         Feedbacks = new ObservableCollection<Feedback>(context.Feedbacks.Include(i=>i.User).ToList());
                     },
                     (x) =>
                     !String.IsNullOrWhiteSpace(Feedback)));
             }
         }
-       
+
 
         #endregion
 
-
-    public FeedbackViewModel(IFrameNavigationService navigationService)
+        #region ctor
+        public FeedbackViewModel(IFrameNavigationService navigationService)
         {
             Feedbacks = new ObservableCollection<Feedback>(context.Feedbacks.Include(i => i.User).ToList());
             user = SimpleIoc.Default.GetInstance<MainViewModel>().User;
             _navigationService = navigationService;
         }
+        #endregion
     }
 }
 

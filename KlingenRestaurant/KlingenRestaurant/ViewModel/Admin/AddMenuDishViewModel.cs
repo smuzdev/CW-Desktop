@@ -3,15 +3,13 @@ using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Threading;
 using System.Drawing;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
-using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Command;
 
 namespace KlingenRestaurant
 {
     class AddMenuDishViewModel : ViewModelBase
     {
-        #region Private Members 
+        #region Private Fields 
 
         private IFrameNavigationService _navigationService;
         private RestaurantContext context = new RestaurantContext();
@@ -22,10 +20,12 @@ namespace KlingenRestaurant
         private DishType dishType;
         private byte[] menuDishImage;
         private bool isVisibleProgressBar;
+        private bool isOpenDialog;
+        private string message;
 
         #endregion
 
-        #region Public Members
+        #region Public Fields
 
         public byte[] MenuDishImage
         {
@@ -44,6 +44,7 @@ namespace KlingenRestaurant
                 RaisePropertyChanged();
             }
         }
+
         public string MenuDishName
         {
             get
@@ -131,6 +132,42 @@ namespace KlingenRestaurant
             }
         }
 
+        public bool IsOpenDialog
+        {
+            get
+            {
+                return isOpenDialog;
+            }
+            set
+            {
+                if (isOpenDialog == value)
+                {
+                    return;
+                }
+                isOpenDialog = value;
+                RaisePropertyChanged();
+            }
+        }
+        /// <summary>
+        /// Message for the dialog  
+        /// </summary>
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                if (message == value)
+                {
+                    return;
+                }
+                message = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public bool IsVisibleProgressBar
         {
             get
@@ -150,6 +187,21 @@ namespace KlingenRestaurant
         #endregion
 
         #region Commands
+
+        private RelayCommand closeDialodCommand;
+        public RelayCommand CloseDialodCommand
+        {
+            get
+            {
+                return closeDialodCommand
+                    ?? (closeDialodCommand = new RelayCommand(
+                    () =>
+                    {
+                        IsOpenDialog = false;
+                    }));
+            }
+        }
+
         private RelayCommandParametr _setPathToImageCommand;
         public RelayCommandParametr SetPathToImageCommand
         {
@@ -187,13 +239,16 @@ namespace KlingenRestaurant
                                 context.Dishes.Add(dish);
                                 context.SaveChanges();
                                 IsVisibleProgressBar = false;
-
+                                Message = "Блюдо добавлено в раздел меню";
+                                IsOpenDialog = true;
                                 DishCostValue = 0;
                                 MenuDishName = MenuDishDescription = DishServingWeight = string.Empty;
                                 Image img = System.Drawing.Image.FromFile(new Uri("../../Assets/noPhoto.png", UriKind.RelativeOrAbsolute).OriginalString);
                                 MenuDishImage = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));
+                              
                             });
                         }
+                       
                     },
                     (x) => !String.IsNullOrWhiteSpace(menuDishName)));
             }

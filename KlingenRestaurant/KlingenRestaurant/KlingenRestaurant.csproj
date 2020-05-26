@@ -92,6 +92,7 @@
     </ApplicationDefinition>
     <Compile Include="DataLayer\Enum\DishType.cs" />
     <Compile Include="DataLayer\Enum\UserRole.cs" />
+    <Compile Include="DataLayer\Model\FavoriteDish.cs" />
     <Compile Include="DataLayer\Model\Feedback.cs" />
     <Compile Include="DataLayer\Model\Product.cs" />
     <Compile Include="DataLayer\Enum\ProductType.cs" />
@@ -102,9 +103,16 @@
     <Compile Include="Helpers\Converters\ByteToBitmapConverter.cs" />
     <Compile Include="Helpers\Converters\EnumConverter.cs" />
     <Compile Include="Helpers\Converters\EnumToItemsSource.cs" />
+    <Compile Include="Helpers\Converters\InverseBooleanConverter.cs" />
     <Compile Include="Helpers\Converters\ParametrizedBooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\MessageWindow\OpenWindowMessage.cs" />
     <Compile Include="Helpers\MessageWindow\WindowType.cs" />
+    <Compile Include="Helpers\Validation\LoginValidationRule.cs" />
+    <Compile Include="Helpers\Validation\MaximumCharacterRule.cs" />
+    <Compile Include="Helpers\Validation\NotContainSpaceRule.cs" />
+    <Compile Include="Helpers\Validation\OnlyLettersRule.cs" />
+    <Compile Include="Helpers\Validation\OnlyNumbersRule.cs" />
+    <Compile Include="Helpers\Validation\PasswordRule.cs" />
     <Compile Include="Helpers\Validation\PhoneNumberValidationRule.cs" />
     <Compile Include="Helpers\Validation\ReservationDateValidationRule.cs" />
     <Compile Include="Helpers\Validation\MinimumCharacterRule.cs" />
@@ -150,7 +158,7 @@
     <Compile Include="ViewModel\Login\LoginViewModel.cs" />
     <Compile Include="ViewModel\Login\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\Menu\AboutDishViewModel.cs" />
-    <Compile Include="ViewModel\Menu\AccountViewModel.cs" />
+    <Compile Include="ViewModel\Menu\FavouritesViewModel.cs" />
     <Compile Include="ViewModel\Menu\CookViewModel.cs" />
     <Compile Include="ViewModel\Menu\FeedbackViewModel.cs" />
     <Compile Include="ViewModel\Menu\HomeViewModel.cs" />
@@ -163,8 +171,8 @@
     <Compile Include="Pages\Menu\AboutDishPage.xaml.cs">
       <DependentUpon>AboutDishPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Menu\AccountPage.xaml.cs">
-      <DependentUpon>AccountPage.xaml</DependentUpon>
+    <Compile Include="Pages\Menu\FavouritesPage.xaml.cs">
+      <DependentUpon>FavouritesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Menu\FeedbackPage.xaml.cs">
       <DependentUpon>FeedbackPage.xaml</DependentUpon>
@@ -241,7 +249,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Menu\AccountPage.xaml">
+    <Page Include="Pages\Menu\FavouritesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

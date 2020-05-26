@@ -1,22 +1,18 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Messaging;
-using GalaSoft.MvvmLight.Threading;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Data.Entity;
-using System.Threading.Tasks;
 
 namespace KlingenRestaurant
 {
     public class ReservationViewModel : ViewModelBase
     {
-        #region Private members
+        #region Private Fields
+
         private RestaurantContext context = new RestaurantContext();
         private User user;
         private string clientName;
@@ -32,7 +28,8 @@ namespace KlingenRestaurant
 
         #endregion
 
-        #region Public members
+        #region Public Fields
+
         public string ClientName
         {
             get
@@ -223,6 +220,7 @@ namespace KlingenRestaurant
         #endregion
 
         #region Commands
+
         private RelayCommand closeDialodCommand;
         public RelayCommand CloseDialodCommand
         {
@@ -270,6 +268,8 @@ namespace KlingenRestaurant
                                 };
                                 context.Reservations.Add(reservation);
                                 context.SaveChanges();
+                                Message = "Столик успешно забронирован!";
+                                IsOpenDialog = true;
                                 Phone = Wishes = String.Empty;
                                 SelectedTable = null;
                                 IsVisibleProgressBar = false;
@@ -288,7 +288,6 @@ namespace KlingenRestaurant
             }
         }
         #endregion
-
 
         #region Helper
         public ObservableCollection<Table> GetFreeTables()
