@@ -264,11 +264,12 @@ namespace KlingenRestaurant
                                     ReservationDateEnd = dateTimeReservation.AddHours(2),
                                     ReservationDateBegin = dateTimeReservation.AddHours(-2),
                                     Wishes = Wishes
-
+                                    
                                 };
                                 context.Reservations.Add(reservation);
                                 context.SaveChanges();
                                 Message = "Столик успешно забронирован!";
+                                NTable = GetFreeTables();
                                 IsOpenDialog = true;
                                 Phone = Wishes = String.Empty;
                                 SelectedTable = null;
