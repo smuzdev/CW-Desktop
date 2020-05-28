@@ -117,6 +117,7 @@
     <Compile Include="Helpers\Validation\ReservationDateValidationRule.cs" />
     <Compile Include="Helpers\Validation\MinimumCharacterRule.cs" />
     <Compile Include="Helpers\Validation\NotEmptyValidationRule.cs" />
+    <Compile Include="Helpers\Validation\ReservationTimeValidationRule.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>

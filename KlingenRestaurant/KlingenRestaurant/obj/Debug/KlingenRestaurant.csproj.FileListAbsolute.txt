@@ -72,3 +72,4 @@ D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Cook\WarehousePage.baml
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\FavouritesPage.g.cs
 D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\Pages\Menu\FavouritesPage.baml
+D:\BSTU\2sem\СТПМС\CW-Desktop\KlingenRestaurant\KlingenRestaurant\obj\Debug\KlingenRestaurant.csproj.CoreCompileInputs.cache
